@@ -2,6 +2,37 @@
 
 O **Meta Platform Setup Wizard** é uma ferramenta usada para configuração e instalação de ecossistemas **Meta Platform**. Ele facilita a preparação e personalização da instalação, garantindo que todos os componentes essenciais do ecossistema estejam integrados e funcionando de maneira otimizada.
 
+## Como usar a release do projeto
+
+A versão binária mais recente do **Meta Platform Setup Wizard** pode ser encontrada no link abaixo:
+
+[Meta Platform Setup Wizard CLI - versão 0.0.6](https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.6/meta-platform-setup-wizard-command-line-0.0.6-preview-linux-x64)
+
+Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o download e utilizar os comandos disponíveis:
+
+### Como baixar e usar a release
+1. Faça o download do binário:
+   ```bash
+   wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.6/meta-platform-setup-wizard-command-line-0.0.6-preview-linux-x64 -O mywizard
+   ```
+
+2. Torne o binário executável:
+   ```bash
+   chmod +x mywizard
+   ```
+
+3. Execute o binário para verificar os comandos disponíveis:
+   ```bash
+   ./mywizard --help
+   ```
+
+4. Exemplo de uso:
+   ```bash
+   ./mywizard list-profiles
+   ```
+
+---
+
 ## Comandos Disponíveis
 ### Exibir Perfis de Instalação Disponíveis
 Exibe as informações sobre os perfis de instalação disponíveis na ferramenta.
