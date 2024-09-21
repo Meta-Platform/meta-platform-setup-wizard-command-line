@@ -43,7 +43,7 @@ jobs:
           path: env_vars.txt
       - name: Build binary with pkg
         run: |
-          pkg ./src/Executables/exec-pkg.js --targets node18-linux-x64 --output ${{ env.NAME }}-${{ env.VERSION }}-preview-linux-x64
+          pkg ./src/Executables/mywizard.js --targets node18-linux-x64 --output ${{ env.NAME }}-${{ env.VERSION }}-preview-linux-x64
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
