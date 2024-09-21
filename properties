@@ -1,0 +1,10 @@
+# Configuração para execução
+NPM_DEPENDENCIES_DIRNAME=meta-platform-setup-wizard-npm-dependencies
+
+# Repo minimo
+MINIMUM_REPO_NAMESPACE="EssentialRepo"
+MINIMUM_REPO_SOURCE_TYPE="LOCAL_FS"
+#MINIMUM_REPO_SOURCE_TYPE="GOOGLE_DRIVE"
+MINIMUM_REPO_PATH="~/Workspaces/meta-platform-repo/repos/EssentialRepo"
+#MINIMUM_REPO_FILE_ID="12PKZU1Uea1yYnhO7R26Il9eyF__v6MAc"
+

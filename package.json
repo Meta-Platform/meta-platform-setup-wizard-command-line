@@ -1,0 +1,20 @@
+{
+  "name": "meta-platform-setup-wizard-command-line",
+  "version": "0.0.3",
+  "description": "Assistente de Instalação e configuração da Meta Plataforma",
+  "bin": {
+    "mywizard": "./src/Executables/mywizard.js",
+    "mywizard-dbg": "./src/Executables/mywizard-dbg.js"
+  },
+  "scripts": {
+    "build": "pkg ./src/Executables/mywizard.js --targets node18-linux-x64 --output meta-platform-setup-wizard-command-line-0.0.3-alpha-linux-x64"
+  },
+  "author": "kadisk.shark@gmail.com",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "meta-platform-cli-script-loader-library": "git+https://github.com/Meta-Platform/meta-platform-cli-script-loader-library.git",
+    "pkg": "^5.8.1",
+    "yargs": "^17.7.2"
+  }
+}
