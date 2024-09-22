@@ -4,7 +4,8 @@
         {
             "repositoryNamespace":"EssentialRepo",
             "repositorySourceType": "GITHUB_RELEASE",
-            "fileId": "12PKZU1Uea1yYnhO7R26Il9eyF__v6MAc",
+            "repoName": "",
+            "repoOwner": "",
             "appsToInstall":[
                 {
                     "appType":"CLI",
@@ -17,7 +18,8 @@
         {
             "repositoryNamespace":"PlatformCoreRepo",
             "repositorySourceType": "GITHUB_RELEASE",
-            "fileId": "1-PuPdjU36acGmoPgusYWrMuhyGyMnoRI",
+            "repoName": "",
+            "repoOwner": "",
             "appsToInstall":[
                 {
                     "appType":"CLI",
