@@ -3,7 +3,7 @@
     "repositoriesToInstall":[
         {
             "repositoryNamespace":"EssentialRepo",
-            "repositorySourceType": "GITHUB_RELEASE",
+            "repositorySourceType": "GOOGLE_DRIVE",
             "fileId": "12PKZU1Uea1yYnhO7R26Il9eyF__v6MAc",
             "appsToInstall":[
                 {
@@ -16,7 +16,7 @@
         },
         {
             "repositoryNamespace":"PlatformCoreRepo",
-            "repositorySourceType": "GITHUB_RELEASE",
+            "repositorySourceType": "GOOGLE_DRIVE",
             "fileId": "1-PuPdjU36acGmoPgusYWrMuhyGyMnoRI",
             "appsToInstall":[
                 {

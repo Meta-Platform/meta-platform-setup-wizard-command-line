@@ -3,9 +3,7 @@
     "repositoriesToInstall":[
         {
             "repositoryNamespace":"EssentialRepo",
-            "repositorySourceType": "GITHUB_RELEASE",
-            "repoName": "",
-            "repoOwner": "",
+            "repositorySourceType": "GITHUB_REPO",
             "appsToInstall":[
                 {
                     "appType":"CLI",

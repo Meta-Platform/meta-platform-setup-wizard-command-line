@@ -1,7 +1,7 @@
 const EventEmitter = require('events')
 
 const ECOSYSTEM_DEFAULTS = require("../Configs/ecosystem-defaults.json")
-const PROVISIONAL_NPM_DEPENDENCIES =  require("../Configs/provisional-npm-dependencies.json")
+const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
 
 const Installer = async ({ 
     profile, 
@@ -24,8 +24,7 @@ const Installer = async ({
 
     await InstallEcosystemByProfile({
         ecosystemDefaults : ECOSYSTEM_DEFAULTS,
-        //nodejsDependencies : MINIMAL_NPM_DEPENDENCIES,
-        nodejsDependencies : PROVISIONAL_NPM_DEPENDENCIES,
+        npmDependencies : NPM_DEPENDENCIES,
         installProfile : INSTALL_PROFILES[profile],
         installationPath,
         loggerEmitter

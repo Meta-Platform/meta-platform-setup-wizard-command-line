@@ -3,9 +3,8 @@
     "repositoriesToInstall":[
         {
             "repositoryNamespace":"EssentialRepo",
-            "repositorySourceType": "GITHUB_RELEASE",
-            "repoName": "",
-            "repoOwner": "",
+            "repositorySourceType": "GOOGLE_DRIVE",
+            "fileId": "12PKZU1Uea1yYnhO7R26Il9eyF__v6MAc",
             "appsToInstall":[
                 {
                     "appType":"CLI",
