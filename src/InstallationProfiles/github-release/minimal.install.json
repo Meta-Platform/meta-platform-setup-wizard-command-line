@@ -1,5 +1,5 @@
 {
-    "installationDataDir": "~/EcosystemData",
+    "installationDataDir":"~/Workspaces/meta-platform-repo/EcosystemData",
     "repositoriesToInstall":[
         {
             "repository":{
