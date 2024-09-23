@@ -22,7 +22,7 @@ const Installer = async ({
     await InstallEcosystemByProfile({
         ecosystemDefaults : ECOSYSTEM_DEFAULTS,
         npmDependencies : NPM_DEPENDENCIES,
-        installProfile : installationProfiles[profile],
+        installationProfile : installationProfiles[profile],
         installationPath,
         loggerEmitter
     })

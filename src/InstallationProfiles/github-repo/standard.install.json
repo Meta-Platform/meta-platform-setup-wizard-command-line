@@ -2,8 +2,12 @@
     "installationDataDir": "~/EcosystemData",
     "repositoriesToInstall":[
         {
-            "repositoryNamespace":"EssentialRepo",
-            "repositorySourceType": "GITHUB_REPO",
+            "repository":{
+                "namespace": "EssentialRepo",
+                "source":{
+                    "type":"GITHUB_REPO"
+                }
+            },
             "appsToInstall":[
                 {
                     "appType":"CLI",
@@ -14,8 +18,12 @@
             ]
         },
         {
-            "repositoryNamespace":"PlatformCoreRepo",
-            "repositorySourceType": "GITHUB",
+            "repository":{
+                "namespace": "PlatformCoreRepo",
+                "source":{
+                    "type":"GITHUB_REPO"
+                }
+            },
             "appsToInstall":[
                 {
                     "appType":"CLI",

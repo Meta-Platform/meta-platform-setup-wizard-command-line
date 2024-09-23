@@ -2,10 +2,16 @@
     "installationDataDir": "~/EcosystemData",
     "repositoriesToInstall":[
         {
-            "repositoryNamespace":"EssentialRepo",
-            "repositorySourceType": "GITHUB_RELEASE",
-            "repoName": "",
-            "repoOwner": "",
+            "repository":{
+                "namespace": "EssentialRepo",
+                "source":{
+                    "type":"GITHUB_RELEASE",
+                    "repository":{
+                        "name":"meta-platform-essential-repository",
+                        "owner": "Meta-Platform"
+                    }
+                }
+            },
             "appsToInstall":[
                 {
                     "appType":"CLI",
@@ -16,10 +22,16 @@
             ]
         },
         {
-            "repositoryNamespace":"PlatformCoreRepo",
-            "repositorySourceType": "GITHUB_RELEASE",
-            "repoName": "",
-            "repoOwner": "",
+            "repository":{
+                "namespace": "PlatformCoreRepo",
+                "source":{
+                    "type":"GITHUB_RELEASE",
+                    "repository":{
+                        "name":"",
+                        "owner": ""
+                    }
+                }
+            },
             "appsToInstall":[
                 {
                     "appType":"CLI",
