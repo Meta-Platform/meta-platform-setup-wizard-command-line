@@ -31,77 +31,77 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
    ./mywizard list-profiles
    ```
 
----
+
+## Perfis de Instalação
+
+- **dev-minimal-localfs** Configuração mínima, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo local como fonte
+- **dev-standard-localfs** Configuração padrão, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo locol como fonte
+- **minimal-github-release** Configuração mínima, instala baixando do release hospedada no github
+- **standard-github-release** Configuração padrão, instala baixando do release hospedada no github
+- **minimal-github-repo** Configuração mínima, instala clonando do repositório do github
+- **standard-github-repo** Configuração padrão, instala clonando do repositório do github
+- **minimal-google-drive** Configuração mínima, instala baixando do gogle drive
+- **standard-google-drive** Configuração padrão, instala baixando do gogle drive
 
 ## Comandos Disponíveis
 ### Exibir Perfis de Instalação Disponíveis
 Exibe as informações sobre os perfis de instalação disponíveis na ferramenta.
 
 ```bash
-mywizard list-profiles
+./mywizard list-profiles
 ```
 
 ### Instalar um Ecossistema na Pasta Padrão do Usuário
 Instala o ecossistema na pasta de usuário padrão, utilizando o perfil de instalação **standard** por padrão.
 
 ```bash
-mywizard install
+./mywizard install
 ```
 
 #### Exemplo:
 ```bash
-mywizard install --profile standard
+./mywizard install --profile standard-github-release
 ```
 
 ### Exibir Detalhes de um Perfil
 Exibe informações detalhadas sobre um perfil específico, como componentes incluídos e configurações recomendadas.
 
 ```bash
-mywizard show-profile --profile <nome_do_perfil>
+./mywizard show-profile --profile <nome_do_perfil>
 ```
 
 #### Exemplo:
 ```bash
-mywizard show-profile --profile dev-standard
+./mywizard show-profile --profile dev-standard
 ```
 
 ### Instalar com Perfis Específicos
 Escolha o perfil de instalação desejado para ajustar a configuração do ecossistema de acordo com suas necessidades.
 
-- **dev-minimal**: Ambiente de desenvolvimento com o mínimo de recursos.
-- **dev-standard**: Ambiente de desenvolvimento com recursos padrão.
-- **minimal**: Ambiente de produção com recursos mínimos.
-- **standard**: Ambiente de produção com recursos completos.
-
 ```bash
-mywizard install --profile "<nome_do_perfil>"
+./mywizard install --profile "<nome_do_perfil>"
 ```
 
 #### Exemplos:
 ```bash
-mywizard install --profile dev-minimal
-mywizard install --profile dev-standard
-mywizard install --profile minimal
-mywizard install --profile standard
+./mywizard install --profile dev-minimal-localfs
+./mywizard install --profile dev-standard-localfs
+./mywizard install --profile minimal-github-release
+./mywizard install --profile standard-github-release
 ```
 
 ### Alterar o Caminho dos Dados de Instalação
 Personalize o caminho onde o ecossistema será instalado especificando o diretório de dados.
 
 ```bash
-mywizard install --installation-path "<caminho_para_dados>"
+./mywizard install --installation-path "<caminho_para_dados>"
 ```
 
 #### Exemplo:
 ```bash
-mywizard install --installation-path "~/xpto/EcosystemData"
+./mywizard install --installation-path "~/xpto/EcosystemData"
 ```
-
-## Perfis de Instalação
 
 Os perfis de instalação permitem que você escolha a configuração mais adequada para o seu ambiente. Abaixo está uma lista dos perfis disponíveis:
 
-- **dev-minimal**: Configuração mínima para desenvolvimento, com os componentes essenciais.
-- **dev-standard**: Configuração padrão para desenvolvimento, incluindo ferramentas adicionais.
-- **minimal**: Configuração mínima para produção, com apenas os componentes essenciais.
-- **standard**: Configuração completa para produção, com todos os componentes integrados.
+
