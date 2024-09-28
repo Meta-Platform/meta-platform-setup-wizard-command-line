@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-const path = require("path")
 const process = require("process")
 const yargs = require("yargs/yargs")
 const { hideBin } = require("yargs/helpers")
 
 const ListProfilesCommand = require("../Commands/ListProfiles.command")
 const InstallCommand = require("../Commands/Install.command")
+const UpdateCommand = require("../Commands/Update.command")
 const ShowProfileInfoCommand = require("../Commands/ShowProfileInfo.command")
 
 const { argv } = yargs(hideBin(process.argv))

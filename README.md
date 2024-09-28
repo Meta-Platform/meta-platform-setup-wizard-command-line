@@ -1,5 +1,9 @@
 # Meta Platform Setup Wizard
 
+<p align="center">
+  <img src="logo.svg" alt="Logo do Projeto" width="200"/>
+</p>
+
 O **Meta Platform Setup Wizard** é uma ferramenta usada para configuração e instalação de ecossistemas **Meta Platform**. Ele facilita a preparação e personalização da instalação, garantindo que todos os componentes essenciais do ecossistema estejam integrados e funcionando de maneira otimizada.
 
 ## Como usar a release do projeto
@@ -84,10 +88,21 @@ Escolha o perfil de instalação desejado para ajustar a configuração do ecoss
 
 #### Exemplos:
 ```bash
-./mywizard install --profile dev-minimal-localfs
 ./mywizard install --profile dev-standard-localfs
 ./mywizard install --profile minimal-github-release
-./mywizard install --profile standard-github-release
+```
+
+### Atualizar ecosistema usando Perfis Específicos
+Escolha o perfil de instalação desejado para atualizar os repositórios do ecosistemas.
+
+```bash
+./mywizard update --profile "<nome_do_perfil>"
+```
+
+#### Exemplos:
+```bash
+./mywizard update --profile dev-minimal-localfs
+./mywizard update --profile standard-github-release
 ```
 
 ### Alterar o Caminho dos Dados de Instalação
