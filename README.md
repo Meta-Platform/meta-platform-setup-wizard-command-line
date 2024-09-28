@@ -1,8 +1,8 @@
-# Meta Platform Setup Wizard
-
 <p align="center">
-  <img src="logo.svg" alt="Logo do Projeto" width="200"/>
+  <img alt="Setup Wizard" width="200px" src="logo.svg">
 </p>
+
+<h1 align="center">Meta Platform Setup Wizard</h1>
 
 O **Meta Platform Setup Wizard** é uma ferramenta usada para configuração e instalação de ecossistemas **Meta Platform**. Ele facilita a preparação e personalização da instalação, garantindo que todos os componentes essenciais do ecossistema estejam integrados e funcionando de maneira otimizada.
 
@@ -48,26 +48,35 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
 - **standard-google-drive** Configuração padrão, instala baixando do gogle drive
 
 ## Comandos Disponíveis
-### Exibir Perfis de Instalação Disponíveis
+
+Os seguintes comandos estão disponíveis no **Meta Platform Setup Wizard**:
+
+- [Como usar a release do projeto](#como-usar-a-release-do-projeto)
+  - [Como baixar e usar a release](#como-baixar-e-usar-a-release)
+- [Perfis de Instalação](#perfis-de-instalação)
+- [Comandos Disponíveis](#comandos-disponíveis)
+  - [list-profiles](#list-profiles)
+  - [show-profile](#show-profile)
+    - [Exemplo:](#exemplo)
+  - [install](#install)
+    - [Instalação com Perfil Específico](#instalação-com-perfil-específico)
+      - [Exemplos:](#exemplos)
+    - [Alterar o Caminho dos Dados de Instalação](#alterar-o-caminho-dos-dados-de-instalação)
+      - [Exemplo:](#exemplo-1)
+  - [update](#update)
+    - [Atualização com Perfil Específico](#atualização-com-perfil-específico)
+      - [Exemplos:](#exemplos-1)
+
+### list-profiles
+
 Exibe as informações sobre os perfis de instalação disponíveis na ferramenta.
 
 ```bash
 ./mywizard list-profiles
 ```
 
-### Instalar um Ecossistema na Pasta Padrão do Usuário
-Instala o ecossistema na pasta de usuário padrão, utilizando o perfil de instalação **standard** por padrão.
+### show-profile
 
-```bash
-./mywizard install
-```
-
-#### Exemplo:
-```bash
-./mywizard install --profile standard-github-release
-```
-
-### Exibir Detalhes de um Perfil
 Exibe informações detalhadas sobre um perfil específico, como componentes incluídos e configurações recomendadas.
 
 ```bash
@@ -75,48 +84,67 @@ Exibe informações detalhadas sobre um perfil específico, como componentes inc
 ```
 
 #### Exemplo:
+
 ```bash
 ./mywizard show-profile --profile dev-standard
 ```
 
-### Instalar com Perfis Específicos
-Escolha o perfil de instalação desejado para ajustar a configuração do ecossistema de acordo com suas necessidades.
+### install
+
+Instala o ecossistema na pasta de usuário padrão, utilizando o perfil de instalação **standard** por padrão.
+
+```bash
+./mywizard install
+```
+
+#### Instalação com Perfil Específico
+
+Escolha o perfil de instalação desejado.
 
 ```bash
 ./mywizard install --profile "<nome_do_perfil>"
 ```
 
-#### Exemplos:
+##### Exemplos:
+
 ```bash
 ./mywizard install --profile dev-standard-localfs
 ./mywizard install --profile minimal-github-release
 ```
 
-### Atualizar ecosistema usando Perfis Específicos
-Escolha o perfil de instalação desejado para atualizar os repositórios do ecosistemas.
+#### Alterar o Caminho dos Dados de Instalação
 
-```bash
-./mywizard update --profile "<nome_do_perfil>"
-```
-
-#### Exemplos:
-```bash
-./mywizard update --profile dev-minimal-localfs
-./mywizard update --profile standard-github-release
-```
-
-### Alterar o Caminho dos Dados de Instalação
 Personalize o caminho onde o ecossistema será instalado especificando o diretório de dados.
 
 ```bash
 ./mywizard install --installation-path "<caminho_para_dados>"
 ```
 
-#### Exemplo:
+##### Exemplo:
+
 ```bash
 ./mywizard install --installation-path "~/xpto/EcosystemData"
 ```
 
-Os perfis de instalação permitem que você escolha a configuração mais adequada para o seu ambiente. Abaixo está uma lista dos perfis disponíveis:
+### update
 
+Atualiza os repositórios do ecossistema instalado.
 
+```bash
+./mywizard update
+```
+
+#### Atualização com Perfil Específico
+
+Escolha o perfil de instalação desejado para atualizar os repositórios do ecossistema.
+
+```bash
+./mywizard update --profile "<nome_do_perfil>"
+```
+
+##### Exemplos:
+
+```bash
+./mywizard update --profile dev-minimal-localfs
+./mywizard update --profile standard-github-release
+```
