@@ -23,6 +23,7 @@ const Installer = async ({
         ecosystemDefaults : ECOSYSTEM_DEFAULTS,
         npmDependencies : NPM_DEPENDENCIES,
         installationProfile : installationProfiles[profile],
+        profile,
         installationPath,
         loggerEmitter
     })
