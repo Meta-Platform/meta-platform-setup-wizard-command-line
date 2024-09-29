@@ -5,21 +5,21 @@ const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
 
 const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfiles")
 
-const Installer = async ({ 
+const Updater = async ({ 
     profile, 
     installationPath,
     LoaderScript
 }) => {
     
     const PrintDataLog = LoaderScript("print-data-log.lib/src/PrintDataLog")
-    const InstallEcosystemByProfile = LoaderScript("ecosystem-install-utilities.lib/src/InstallEcosystemByProfile")
+    const UpdateEcosystemByProfile = LoaderScript("ecosystem-install-utilities.lib/src/UpdateEcosystemByProfile")
 
     const installationProfiles = LoadAllInstalationProfiles()
     
     const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard"))
+	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog))
 
-    await InstallEcosystemByProfile({
+    await UpdateEcosystemByProfile({
         ecosystemDefaults : ECOSYSTEM_DEFAULTS,
         npmDependencies : NPM_DEPENDENCIES,
         installationProfile : installationProfiles[profile],
@@ -28,4 +28,4 @@ const Installer = async ({
     })
 }
 
-module.exports = Installer
+module.exports = Updater

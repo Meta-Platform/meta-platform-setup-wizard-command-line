@@ -20,7 +20,7 @@ const { argv } = yargs(hideBin(process.argv))
 			type: 'string'
 		}
 	}, ({ profile, installationPath }) => InstallCommand({ profile, installationPath }))
-	.command('install [profile] [installation-path]', 'Instala um ecosistema conforme o perfil especificado', {
+	.command('update [profile] [installation-path]', 'Atualiza os repositórios, executáveis e binários de um ecosistema instalado', {
 		profile: {
 			describe: 'Perfil de instalação',
 			default: 'standard',
@@ -30,7 +30,7 @@ const { argv } = yargs(hideBin(process.argv))
 			describe: 'Caminho personalizado para os dados de instalação',
 			type: 'string'
 		}
-	}, ({ profile, installationPath }) => InstallCommand({ profile, installationPath }))
+	}, ({ profile, installationPath }) => UpdateCommand({ profile, installationPath }))
 	.command('show-profile [profile]', 'Mostra informações sobre um perfil especifico', {
 		profile: {
 			describe: 'Perfil de instalação',

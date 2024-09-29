@@ -64,7 +64,6 @@ Os seguintes comandos estão disponíveis no **Meta Platform Setup Wizard**:
     - [Alterar o Caminho dos Dados de Instalação](#alterar-o-caminho-dos-dados-de-instalação)
       - [Exemplo:](#exemplo-1)
   - [update](#update)
-    - [Atualização com Perfil Específico](#atualização-com-perfil-específico)
       - [Exemplos:](#exemplos-1)
 
 ### list-profiles
@@ -127,16 +126,8 @@ Personalize o caminho onde o ecossistema será instalado especificando o diretó
 ```
 
 ### update
-
-Atualiza os repositórios do ecossistema instalado.
-
-```bash
-./mywizard update
-```
-
-#### Atualização com Perfil Específico
-
-Escolha o perfil de instalação desejado para atualizar os repositórios do ecossistema.
+Atualiza os repositórios, executáveis e binários de um ecosistema instalado.
+Escolha o perfil de instalação desejado para atualizar.
 
 ```bash
 ./mywizard update --profile "<nome_do_perfil>"
