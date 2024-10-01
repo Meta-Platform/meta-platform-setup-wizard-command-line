@@ -17,7 +17,7 @@ const Installer = async ({
     const installationProfiles = LoadAllInstalationProfiles()
     
     const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard"))
+	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard->Installer"))
 
     await InstallEcosystemByProfile({
         ecosystemDefaults : ECOSYSTEM_DEFAULTS,

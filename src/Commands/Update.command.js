@@ -2,13 +2,13 @@ const path = require("path")
 
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
 
-const Updater = require("../Helpers/Installer")
+const Updater = require("../Helpers/Updater")
 
 const WIZARD_CONFIGS = require("../Configs/wizard-config-dev.json")
 const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
 const META_PLATFORM_DEPENDENCIES = require("../Configs/meta-platform-dependencies.json")
 
-const InstallCommand = async ({ profile, installationPath }) => {   
+const UpdateCommand = async ({ profile, installationPath }) => {   
 
     const LoaderScript = await SetupCLIScriptLoader( {
         npmDependenciesDirname   : WIZARD_CONFIGS.NPM_DEPENDENCIES_DIRNAME,
@@ -28,4 +28,4 @@ const InstallCommand = async ({ profile, installationPath }) => {
     })
 }
 
-module.exports = InstallCommand
+module.exports = UpdateCommand
