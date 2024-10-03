@@ -17,16 +17,26 @@ const Installer = async ({
     const installationProfiles = LoadAllInstalationProfiles()
     
     const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard->Installer"))
+	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard - Installer"))
 
-    await InstallEcosystemByProfile({
-        ecosystemDefaults : ECOSYSTEM_DEFAULTS,
-        npmDependencies : NPM_DEPENDENCIES,
-        installationProfile : installationProfiles[profile],
-        profile,
-        installationPath,
-        loggerEmitter
-    })
+    try{
+        await InstallEcosystemByProfile({
+            ecosystemDefaults : ECOSYSTEM_DEFAULTS,
+            npmDependencies : NPM_DEPENDENCIES,
+            installationProfile : installationProfiles[profile],
+            profile,
+            installationPath,
+            loggerEmitter
+        })
+    } catch(e){
+        loggerEmitter && loggerEmitter.emit("log", {
+            sourceName: "Installer",
+            type: "error",
+            message: `A instalação cancelada!`
+        })
+        console.error(e)
+    }
+    
 }
 
 module.exports = Installer

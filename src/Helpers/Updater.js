@@ -17,16 +17,25 @@ const Updater = async ({
     const installationProfiles = LoadAllInstalationProfiles()
     
     const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard->Updater"))
+	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard - Updater"))
 
-    await UpdateEcosystemByProfile({
-        ecosystemDefaults : ECOSYSTEM_DEFAULTS,
-        npmDependencies : NPM_DEPENDENCIES,
-        installationProfile : installationProfiles[profile],
-        profile,
-        installationPath,
-        loggerEmitter
-    })
+    try{
+        await UpdateEcosystemByProfile({
+            ecosystemDefaults : ECOSYSTEM_DEFAULTS,
+            npmDependencies : NPM_DEPENDENCIES,
+            installationProfile : installationProfiles[profile],
+            profile,
+            installationPath,
+            loggerEmitter
+        })
+    } catch(e){
+        loggerEmitter && loggerEmitter.emit("log", {
+            sourceName: "Updater",
+            type: "error",
+            message: `A atualização cancelada!`
+        })
+        console.error(e)
+    }
 }
 
 module.exports = Updater
