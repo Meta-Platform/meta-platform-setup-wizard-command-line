@@ -29,12 +29,20 @@ const Updater = async ({
             loggerEmitter
         })
     } catch(e){
+       
+        loggerEmitter && loggerEmitter.emit("log", {
+            sourceName: "Updater",
+            type: "error",
+            message: e
+        })
+
         loggerEmitter && loggerEmitter.emit("log", {
             sourceName: "Updater",
             type: "error",
             message: `A atualização cancelada!`
         })
-        console.error(e)
+
+        throw e
     }
 }
 
