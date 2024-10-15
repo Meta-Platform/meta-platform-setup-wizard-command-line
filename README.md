@@ -35,7 +35,6 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
    ./mywizard list-profiles
    ```
 
-
 ## Perfis de Instalação
 
 - **dev-minimal-localfs** Configuração mínima, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo local como fonte
@@ -65,6 +64,7 @@ Os seguintes comandos estão disponíveis no **Meta Platform Setup Wizard**:
       - [Exemplo:](#exemplo-1)
   - [update](#update)
       - [Exemplos:](#exemplos-1)
+- [Configuração do projeto](#configuração-do-projeto)
 
 ### list-profiles
 
@@ -79,7 +79,7 @@ Exibe as informações sobre os perfis de instalação disponíveis na ferrament
 Exibe informações detalhadas sobre um perfil específico, como componentes incluídos e configurações recomendadas.
 
 ```bash
-./mywizard show-profile --profile <nome_do_perfil>
+./mywizard show-profile --profile "<nome_do_perfil>"
 ```
 
 #### Exemplo:
@@ -138,4 +138,15 @@ Escolha o perfil de instalação desejado para atualizar.
 ```bash
 ./mywizard update --profile dev-minimal-localfs
 ./mywizard update --profile standard-github-release
+```
+## Configuração do projeto
+
+Para começar a usar o Daemon Management Command-line do Meta Platform no seu sistema, siga os passos abaixo:
+
+1. Abra o terminal.
+2. Execute os comandos a seguir para instalar a ferramenta e configurar os links simbólicos necessários:
+
+```bash
+npm install
+npm link
 ```
