@@ -4,7 +4,7 @@ const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/Se
 
 const Updater = require("../Helpers/Updater")
 
-const WIZARD_CONFIGS = require("../Configs/wizard-config-dev.json")
+const WIZARD_CONFIGS = require("../Configs/app-params-dev.json")
 const NPM_DEPENDENCIES =  require("../Configs/npm-dependencies.json")
 const META_PLATFORM_DEPENDENCIES = require("../Configs/meta-platform-dependencies.json")
 
