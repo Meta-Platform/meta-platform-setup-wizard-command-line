@@ -3,6 +3,7 @@ const LoadAllInstalationProfiles = () => {
     const INSTALLATION_PROFILES = {
         "dev-minimal-localfs"     : require("../InstallationProfiles/dev-localfs/minimal.install.json"),
         "dev-standard-localfs"    : require("../InstallationProfiles/dev-localfs/standard.install.json"),
+        "dev-full-localfs"        : require("../InstallationProfiles/dev-localfs/full.install.json"),
         "minimal-github-release"  : require("../InstallationProfiles/github-release/minimal.install.json"),
         "standard-github-release" : require("../InstallationProfiles/github-release/standard.install.json"),
         "minimal-github-repo"     : require("../InstallationProfiles/github-repo/minimal.install.json"),
