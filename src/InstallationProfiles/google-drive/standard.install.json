@@ -5,7 +5,7 @@
             "repository":{
                 "namespace": "EssentialRepo",
                 "source":{
-                    "type":"GOOGLE_DRIVE",
+                    "sourceType":"GOOGLE_DRIVE",
                     "fileId": "12PKZU1Uea1yYnhO7R26Il9eyF__v6MAc"
                 }
             },    
@@ -22,7 +22,7 @@
             "repository":{
                 "namespace": "EcosystemCoreRepo",
                 "source":{
-                    "type":"GOOGLE_DRIVE",
+                    "sourceType":"GOOGLE_DRIVE",
                     "fileId": "1-PuPdjU36acGmoPgusYWrMuhyGyMnoRI"
                 }
             },    

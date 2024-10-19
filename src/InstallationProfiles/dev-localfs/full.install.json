@@ -5,7 +5,7 @@
             "repository":{
                 "namespace": "EssentialRepo",
                 "source":{
-                    "type":"LOCAL_FS",
+                    "sourceType":"LOCAL_FS",
                     "path": "~/Workspaces/meta-platform-repo/repos/meta-platform-essential-repository"
                 }
             }, 
@@ -28,7 +28,7 @@
             "repository":{
                 "namespace": "EcosystemCoreRepo",
                 "source":{
-                    "type":"LOCAL_FS",
+                    "sourceType":"LOCAL_FS",
                     "path": "~/Workspaces/meta-platform-repo/repos/meta-platform-ecosystem-core-repository"
                 }
             }, 
@@ -70,7 +70,7 @@
             "repository":{
                 "namespace": "PlaformApplicationsRepo",
                 "source":{
-                    "type":"LOCAL_FS",
+                    "sourceType":"LOCAL_FS",
                     "path": "~/Workspaces/meta-platform-repo/repos/PlaformApplicationsRepo"
                 }
             }

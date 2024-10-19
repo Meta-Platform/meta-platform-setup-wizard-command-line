@@ -5,7 +5,7 @@
             "repository":{
                 "namespace": "EssentialRepo",
                 "source":{
-                    "type":"GITHUB_RELEASE",
+                    "sourceType":"GITHUB_RELEASE",
                     "repository":{
                         "name":"meta-platform-essential-repository",
                         "owner": "Meta-Platform"
@@ -25,7 +25,7 @@
             "repository":{
                 "namespace": "EcosystemCoreRepo",
                 "source":{
-                    "type":"GITHUB_RELEASE",
+                    "sourceType":"GITHUB_RELEASE",
                     "repository":{
                         "name":"meta-platform-ecosystem-core-repository",
                         "owner": "Meta-Platform"

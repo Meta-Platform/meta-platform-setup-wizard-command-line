@@ -5,7 +5,7 @@
             "repository":{
                 "namespace": "EssentialRepo",
                 "source":{
-                    "type":"GITHUB_REPO"
+                    "sourceType":"GITHUB_REPO"
                 }
             },
             "appsToInstall":[
@@ -21,7 +21,7 @@
             "repository":{
                 "namespace": "EcosystemCoreRepo",
                 "source":{
-                    "type":"GITHUB_REPO"
+                    "sourceType":"GITHUB_REPO"
                 }
             },
             "appsToInstall":[

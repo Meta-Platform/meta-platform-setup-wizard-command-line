@@ -5,7 +5,7 @@
             "repository":{
                 "namespace": "EssentialRepo",
                 "source":{
-                    "type":"LOCAL_FS",
+                    "sourceType":"LOCAL_FS",
                     "path": "~/Workspaces/meta-platform-repo/repos/meta-platform-essential-repository"
                 }
             }, 
@@ -15,6 +15,12 @@
                     "executable":"mytoolkit",
                     "packageNamespace":"Main.Module/Application.layer/maintenance-toolkit.cli",
                     "supervisorSocketFileName":"mytoolkit.sock"
+                },
+                {
+                    "appType":"CLI",
+                    "executable":"repo",
+                    "packageNamespace":"Main.Module/Application.layer/repository-manager.cli",
+                    "supervisorSocketFileName":"repo.sock"
                 }
             ]
         }

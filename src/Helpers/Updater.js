@@ -17,7 +17,7 @@ const Updater = async ({
     const installationProfiles = LoadAllInstalationProfiles()
     
     const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "setup-wizard - Updater"))
+	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "Updater"))
 
     try{
         await UpdateEcosystemByProfile({
