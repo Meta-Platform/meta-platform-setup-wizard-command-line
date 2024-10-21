@@ -1,10 +1,10 @@
 
 const ShowProfileInfoCommand = async ({ profile }) => {
     const INSTALL_PROFILES = {
-        "dev-minimal": require("../InstallationProfiles/dev-minimal.install.json"),
-        "dev-standard": require("../InstallationProfiles/dev-standard.install.json"),
-        "minimal": require("../InstallationProfiles/minimal.install.json"),
-        "standard": require("../InstallationProfiles/standard.install.json")
+        "dev-minimal": require("../../installation-profiles/dev-minimal.install.json"),
+        "dev-standard": require("../../installation-profiles/dev-standard.install.json"),
+        "minimal": require("../../installation-profiles/minimal.install.json"),
+        "standard": require("../../installation-profiles/standard.install.json")
     }
 
     const profileContent = INSTALL_PROFILES[profile]
