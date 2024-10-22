@@ -35,8 +35,8 @@
             "appsToInstall":[
                 {
                     "appType":"APP",
-                    "executable":"start-platform",
-                    "packageNamespace":"Main.Module/Application.layer/platform-main-application.app",
+                    "executable":"start-instance-manager",
+                    "packageNamespace":"Main.Module/Application.layer/ecosystem-instance-manager.app",
                     "supervisorSocketFileName":"daemon.sock"
                 },
                 {
@@ -53,9 +53,9 @@
                 },
                 {
                     "appType":"CLI",
-                    "executable":"repoex",
+                    "executable":"explorer",
                     "packageNamespace":"Main.Module/Application.layer/repository-explorer.cli",
-                    "supervisorSocketFileName":"repoex.sock"
+                    "supervisorSocketFileName":"explorer.sock"
                 },
                 {
                     "appType":"CLI",

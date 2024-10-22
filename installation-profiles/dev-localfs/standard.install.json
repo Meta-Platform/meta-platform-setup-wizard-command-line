@@ -12,6 +12,12 @@
             "appsToInstall":[
                 {
                     "appType":"CLI",
+                    "executable":"supervisor",
+                    "packageNamespace":"Main.Module/Application.layer/execution-supervisor.cli",
+                    "supervisorSocketFileName":"supervisor.sock"
+                },
+                {
+                    "appType":"CLI",
                     "executable":"mytoolkit",
                     "packageNamespace":"Main.Module/Application.layer/maintenance-toolkit.cli",
                     "supervisorSocketFileName":"mytoolkit.sock"
@@ -35,8 +41,8 @@
             "appsToInstall":[
                 {
                     "appType":"APP",
-                    "executable":"start-platform",
-                    "packageNamespace":"Main.Module/Application.layer/platform-main-application.app",
+                    "executable":"start-instance-manager",
+                    "packageNamespace":"Main.Module/Application.layer/ecosystem-instance-manager.app",
                     "supervisorSocketFileName":"daemon.sock"
                 },
                 {
@@ -53,9 +59,9 @@
                 },
                 {
                     "appType":"CLI",
-                    "executable":"repoex",
+                    "executable":"explorer",
                     "packageNamespace":"Main.Module/Application.layer/repository-explorer.cli",
-                    "supervisorSocketFileName":"repoex.sock"
+                    "supervisorSocketFileName":"explorer.sock"
                 },
                 {
                     "appType":"CLI",
