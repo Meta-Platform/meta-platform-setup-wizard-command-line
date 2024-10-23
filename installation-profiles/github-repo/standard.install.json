@@ -2,36 +2,14 @@
     "installationDataDir": "~/EcosystemData",
     "repositoriesToInstall":[
         {
-            "repository":{
-                "namespace": "EssentialRepo",
-                "source":{
-                    "sourceType":"GITHUB_REPO"
-                }
-            },
-            "appsToInstall":[
-                {
-                    "appType":"CLI",
-                    "executable":"mytoolkit",
-                    "packageNamespace":"Main.Module/Application.layer/maintenance-toolkit.cli",
-                    "supervisorSocketFileName":"mytoolkit.sock"
-                }
-            ]
+            "namespace": "EssentialRepo",
+            "sourceType":"GITHUB_REPO",
+            "executableToInstall": ["supervisor", "mytoolkit", "repo"]
         },
         {
-            "repository":{
-                "namespace": "EcosystemCoreRepo",
-                "source":{
-                    "sourceType":"GITHUB_REPO"
-                }
-            },
-            "appsToInstall":[
-                {
-                    "appType":"CLI",
-                    "executable":"myexec",
-                    "packageNamespace":"Main.Module/Application.layer/platform-executor.cli",
-                    "supervisorSocketFileName":"myexec.sock"
-                }
-            ]
+            "namespace": "EcosystemCoreRepo",
+            "sourceType":"GITHUB_REPO",
+            "executableToInstall": ["start-instance-manager", "mylauncher", "executor", "explorer", "mysup"]
         }
     ]
 }

@@ -2,20 +2,9 @@
     "installationDataDir": "~/EcosystemData",
     "repositoriesToInstall":[
         {
-            "repository":{
-                "namespace": "EssentialRepo",
-                "source":{
-                    "sourceType":"GITHUB_REPO"
-                }
-            },
-            "appsToInstall":[
-                {
-                    "appType":"CLI",
-                    "executable":"mytoolkit",
-                    "packageNamespace":"Main.Module/Application.layer/maintenance-toolkit.cli",
-                    "supervisorSocketFileName":"mytoolkit.sock"
-                }
-            ]
+            "namespace": "EssentialRepo",
+            "sourceType":"GITHUB_REPO",
+            "executableToInstall": ["supervisor", "mytoolkit", "repo"]
         }
     ]
 }
