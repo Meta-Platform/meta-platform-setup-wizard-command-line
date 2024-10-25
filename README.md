@@ -36,35 +36,33 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
    ```
 
 ## Perfis de Instalação
-
-- **dev-minimal-localfs** Configuração mínima, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo local como fonte
-- **dev-standard-localfs** Configuração padrão, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo locol como fonte
-- **minimal-github-release** Configuração mínima, instala baixando do release hospedada no github
-- **standard-github-release** Configuração padrão, instala baixando do release hospedada no github
-- **minimal-github-repo** Configuração mínima, instala clonando do repositório do github
-- **standard-github-repo** Configuração padrão, instala clonando do repositório do github
-- **minimal-google-drive** Configuração mínima, instala baixando do gogle drive
-- **standard-google-drive** Configuração padrão, instala baixando do gogle drive
+# ATUALIZAR OS PERFIS
+- **dev-localfs-minimal** Configuração mínima, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo local como fonte
+- **dev-localfs-standard** Configuração padrão, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo locol como fonte
+- **github-release-minimal** Configuração mínima, instala baixando do release hospedada no github
+- **github-release-standard** Configuração padrão, instala baixando do release hospedada no github
+- **github-repo-minimal** Configuração mínima, instala clonando do repositório do github
+- **github-repo-standard** Configuração padrão, instala clonando do repositório do github
+- **google-drive-minimal** Configuração mínima, instala baixando do gogle drive
+- **google-drive-standard** Configuração padrão, instala baixando do gogle drive
 
 ## Comandos Disponíveis
 
 Os seguintes comandos estão disponíveis no **Meta Platform Setup Wizard**:
 
-- [Como usar a release do projeto](#como-usar-a-release-do-projeto)
-  - [Como baixar e usar a release](#como-baixar-e-usar-a-release)
-- [Perfis de Instalação](#perfis-de-instalação)
-- [Comandos Disponíveis](#comandos-disponíveis)
-  - [list-profiles](#list-profiles)
-  - [show-profile](#show-profile)
-    - [Exemplo:](#exemplo)
-  - [install](#install)
-    - [Instalação com Perfil Específico](#instalação-com-perfil-específico)
-      - [Exemplos:](#exemplos)
-    - [Alterar o Caminho dos Dados de Instalação](#alterar-o-caminho-dos-dados-de-instalação)
-      - [Exemplo:](#exemplo-1)
-  - [update](#update)
-      - [Exemplos:](#exemplos-1)
-- [Configuração do projeto](#configuração-do-projeto)
+- [ATUALIZAR OS PERFIS](#atualizar-os-perfis)
+  - [Comandos Disponíveis](#comandos-disponíveis)
+    - [list-profiles](#list-profiles)
+    - [show-profile](#show-profile)
+      - [Exemplo:](#exemplo)
+    - [install](#install)
+      - [Instalação com Perfil Específico](#instalação-com-perfil-específico)
+        - [Exemplos:](#exemplos)
+      - [Alterar o Caminho dos Dados de Instalação](#alterar-o-caminho-dos-dados-de-instalação)
+        - [Exemplo:](#exemplo-1)
+    - [update](#update)
+        - [Exemplos:](#exemplos-1)
+  - [Configuração do projeto](#configuração-do-projeto)
 
 ### list-profiles
 
@@ -107,8 +105,8 @@ Escolha o perfil de instalação desejado.
 ##### Exemplos:
 
 ```bash
-./mywizard install --profile dev-standard-localfs
-./mywizard install --profile minimal-github-release
+./mywizard install --profile dev-localfs-standard
+./mywizard install --profile github-release-minimal
 ```
 
 #### Alterar o Caminho dos Dados de Instalação
@@ -136,8 +134,8 @@ Escolha o perfil de instalação desejado para atualizar.
 ##### Exemplos:
 
 ```bash
-./mywizard update --profile dev-minimal-localfs
-./mywizard update --profile standard-github-release
+./mywizard update --profile dev-localfs-minimal
+./mywizard update --profile github-release-standard
 ```
 ## Configuração do projeto
 
