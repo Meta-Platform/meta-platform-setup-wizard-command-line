@@ -38,7 +38,7 @@
     "PlaformApplicationsRepo": [
         {
             "sourceType":"LOCAL_FS",
-            "path": "~/Workspaces/meta-platform-repo/repos/meta-platform-applications-repository"
+            "path": "~/Workspaces/meta-platform-repo/repos/applications-repository"
         }
     ]
 }
