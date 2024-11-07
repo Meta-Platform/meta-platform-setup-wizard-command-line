@@ -5,11 +5,6 @@
             "namespace": "EssentialRepo",
             "sourceType":"GITHUB_REPO",
             "executablesToInstall": ["supervisor", "mytoolkit", "repo"]
-        },
-        {
-            "namespace": "EcosystemCoreRepo",
-            "sourceType":"GITHUB_REPO",
-            "executablesToInstall": ["start-instance-manager", "mylauncher", "executor", "explorer"]
         }
     ]
 }
