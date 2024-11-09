@@ -10,14 +10,14 @@ O **Meta Platform Setup Wizard** é uma ferramenta usada para configuração e i
 
 A versão binária mais recente do **Meta Platform Setup Wizard** pode ser encontrada no link abaixo:
 
-[Meta Platform Setup Wizard CLI - versão 0.0.12](https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.12/meta-platform-setup-wizard-command-line-0.0.12-preview-linux-x64)
+[Meta Platform Setup Wizard CLI - versão 0.0.13](https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.13/meta-platform-setup-wizard-command-line-0.0.13-preview-linux-x64)
 
 Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o download e utilizar os comandos disponíveis:
 
 ### Como baixar e usar a release
 1. Faça o download do binário:
    ```bash
-   wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.12/meta-platform-setup-wizard-command-line-0.0.12-preview-linux-x64 -O mywizard
+   wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.13/meta-platform-setup-wizard-command-line-0.0.13-preview-linux-x64 -O mywizard
    ```
 
 2. Torne o binário executável:
