@@ -13,7 +13,8 @@
         },
         {
             "namespace": "PlaformApplicationsRepo",
-            "sourceType":"LOCAL_FS"
+            "sourceType":"LOCAL_FS",
+            "executablesToInstall": ["api", "developer", "sources"]
         }
     ]
 }
