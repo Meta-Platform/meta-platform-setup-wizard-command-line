@@ -10,14 +10,14 @@ O **Meta Platform Setup Wizard** é uma ferramenta usada para configuração e i
 
 A versão binária mais recente do **Meta Platform Setup Wizard** pode ser encontrada no link abaixo:
 
-[Meta Platform Setup Wizard CLI - versão 0.0.15](https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.15/meta-platform-setup-wizard-command-line-0.0.15-preview-linux-x64)
+[Meta Platform Setup Wizard CLI - versão 0.0.16](https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.16/meta-platform-setup-wizard-command-line-0.0.16-preview-linux-x64)
 
 Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o download e utilizar os comandos disponíveis:
 
 ### Como baixar e usar a release
 1. Faça o download do binário:
    ```bash
-   wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.15/meta-platform-setup-wizard-command-line-0.0.15-preview-linux-x64 -O mywizard
+   wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.16/meta-platform-setup-wizard-command-line-0.0.16-preview-linux-x64 -O mywizard
    ```
 
 2. Torne o binário executável:
@@ -36,6 +36,9 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
    ```
 
 ## Perfis de Instalação
+- **release-minimal** Configuração mínima, instala baixando do release hospedada no github
+- **release-standard** Configuração padrão, instala baixando do release hospedada no github
+
 # ATUALIZAR OS PERFIS
 - **dev-localfs-minimal** Configuração mínima, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo local como fonte
 - **dev-localfs-standard** Configuração padrão, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo locol como fonte
