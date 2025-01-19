@@ -1,0 +1,7 @@
+{
+    "NPM_DEPENDENCIES_DIRNAME": "meta-platform-setup-wizard-npm-dependencies",
+    "MINIMUM_REPO_NAMESPACE": "EssentialRepo",
+    "MINIMUM_REPO_SOURCE_TYPE": "GITHUB_RELEASE",
+    "MINIMUM_REPO_GITHUB_OWNER":"Meta-Platform",
+    "MINIMUM_REPO_GITHUB_NAME": "meta-platform-essential-repository"
+}

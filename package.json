@@ -1,13 +1,13 @@
 {
   "name": "meta-platform-setup-wizard-command-line",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Assistente de Instalação e configuração da Meta Plataforma",
   "bin": {
     "mywizard": "./src/Executables/mywizard.js",
     "mywizard-dbg": "./src/Executables/mywizard-dbg.js"
   },
   "scripts": {
-    "build": "pkg ./src/Executables/mywizard.js --targets node18-linux-x64 --output meta-platform-setup-wizard-command-line-0.0.16-alpha-linux-x64"
+    "build": "pkg ./src/Executables/mywizard.js --targets node18-linux-x64 --output meta-platform-setup-wizard-command-line-0.0.17-alpha-linux-x64"
   },
   "author": "kadisk.shark@gmail.com",
   "license": "BSD-3-Clause",
