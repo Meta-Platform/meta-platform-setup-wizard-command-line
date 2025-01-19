@@ -1,7 +1,7 @@
 const path = require("path")
 
 const SetupCLIScriptLoader = require("meta-platform-cli-script-loader-library/SetupCLIScriptLoader")
-const APP_PARAMS = require("../../configs/app-params-dev.json")
+const APP_PARAMS = require("../../configs/app-params-release.json")
 const NPM_DEPENDENCIES =  require("../../configs/npm-dependencies.json")
 const META_PLATFORM_DEPENDENCIES = require("../../configs/meta-platform-dependencies.json")
 
