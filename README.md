@@ -111,7 +111,7 @@ Escolha o perfil de instalação desejado.
 
 ```bash
 ./mywizard install --profile dev-localfs-standard
-./mywizard install --profile github-release-minimal
+./mywizard install --profile release-minimal
 ```
 
 #### Alterar o Caminho dos Dados de Instalação
@@ -140,7 +140,8 @@ Escolha o perfil de instalação desejado para atualizar.
 
 ```bash
 ./mywizard update --profile dev-localfs-minimal
-./mywizard update --profile github-release-standard
+./mywizard update --profile release-standard
+./mywizard update --profile localfs-release-standard
 ```
 
 #### Atualização a partir de um arquivo de instalação

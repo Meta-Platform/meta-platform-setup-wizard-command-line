@@ -1,0 +1,15 @@
+{
+    "installationDataDir":"~/EcosystemData",
+    "repositoriesToInstall":[
+        {
+            "namespace": "EssentialRepo",
+            "sourceType":"LOCAL_FS",
+            "executablesToInstall": ["supervisor", "mytoolkit", "repo"]
+        },
+        {
+            "namespace": "EcosystemCoreRepo",
+            "sourceType":"LOCAL_FS",
+            "executablesToInstall": ["executor-manager", "mylauncher", "executor", "explorer", "executor-panel", "eco-panel"]
+        }
+    ]
+}
