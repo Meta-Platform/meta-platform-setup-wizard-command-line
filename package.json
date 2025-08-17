@@ -1,5 +1,5 @@
 {
-  "name": "meta-platform-setup-wizard-command-line",
+  "name": "mywizard",
   "version": "0.0.19",
   "description": "Assistente de Instalação e configuração da Meta Plataforma",
   "bin": {
@@ -12,8 +12,8 @@
   "author": "kadisk.shark@gmail.com",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "cli-script-loader": "^0.0.8",
     "colors": "^1.4.0",
-    "meta-platform-cli-script-loader-library": "git+https://github.com/Meta-Platform/meta-platform-cli-script-loader-library.git",
     "pkg": "^5.8.1",
     "yargs": "^17.7.2"
   }
