@@ -39,16 +39,6 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
 - **release-minimal** Configuração mínima, instala baixando do release hospedada no github
 - **release-standard** Configuração padrão, instala baixando do release hospedada no github
 
-# ATUALIZAR OS PERFIS
-- **dev-localfs-minimal** Configuração mínima, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo local como fonte
-- **dev-localfs-standard** Configuração padrão, instalada no local de execução do comando e não do diretório *home*, usando o sistema de arquivo locol como fonte
-- **github-release-minimal** Configuração mínima, instala baixando do release hospedada no github
-- **github-release-standard** Configuração padrão, instala baixando do release hospedada no github
-- **github-repo-minimal** Configuração mínima, instala clonando do repositório do github
-- **github-repo-standard** Configuração padrão, instala clonando do repositório do github
-- **google-drive-minimal** Configuração mínima, instala baixando do gogle drive
-- **google-drive-standard** Configuração padrão, instala baixando do gogle drive
-
 ## Comandos Disponíveis
 
 Os seguintes comandos estão disponíveis no **Meta Platform Setup Wizard**:
