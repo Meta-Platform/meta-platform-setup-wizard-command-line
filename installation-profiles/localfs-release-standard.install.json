@@ -9,7 +9,7 @@
         {
             "namespace": "EcosystemCoreRepo",
             "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["executor-manager", "mylauncher", "executor", "explorer", "executor-panel", "eco-panel"]
+            "executablesToInstall": ["executor-manager", "executor", "explorer", "executor-panel", "eco-panel"]
         }
     ]
 }
