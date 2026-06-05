@@ -124,7 +124,7 @@ Configurações internas usadas pela ferramenta (não confundir com os perfis):
 | Arquivo | Conteúdo |
 |---------|----------|
 | [`repository-sources.json`](./configs/repository-sources.json) | Fontes de cada repositório por `namespace` (LOCAL_FS/GITHUB_RELEASE/GOOGLE_DRIVE). Cruzado com `repositoriesToInstall` por [`BuildRepositoriesInstallData.js`](./src/Helpers/BuildRepositoriesInstallData.js). |
-| [`ecosystem-defaults.json`](./configs/ecosystem-defaults.json) | Parâmetros padrão gravados no ecossistema instalado (ver [Open Standard](../meta-platform-open-standard/specifications/metadados/ecosystem-defaults.json)). |
+| [`ecosystem-defaults.json`](./configs/ecosystem-defaults.json) | Parâmetros padrão gravados no ecossistema instalado (ver [Open Standard](https://github.com/Meta-Platform/meta-platform-open-standard/blob/main/specifications/metadados/ecosystem-defaults.json)). |
 | [`npm-dependencies.json`](./configs/npm-dependencies.json) | Dependências NPM mínimas instaladas no ecossistema. |
 | [`meta-platform-dependencies.json`](./configs/meta-platform-dependencies.json) | Libs do `EssentialRepo` carregadas via *script loader* (ex.: `ecosystem-install-utilities.lib`). |
 | [`app-params-dev.json`](./configs/app-params-dev.json) / [`app-params-release.json`](./configs/app-params-release.json) | Parâmetros do repositório mínimo usado para inicializar o *script loader* (`MINIMUM_REPO_*`). O código atual importa o de **release**. |
