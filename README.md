@@ -36,8 +36,98 @@ Esse binário funciona com o comando `mywizard`. Veja abaixo como fazer o downlo
    ```
 
 ## Perfis de Instalação
-- **release-minimal** Configuração mínima, instala baixando do release hospedada no github
-- **release-standard** Configuração padrão, instala baixando do release hospedada no github
+
+Um **perfil** descreve *o que* instalar (quais repositórios e executáveis) e
+*de onde* (sistema de arquivos local ou release do GitHub). Os perfis são
+arquivos `*.install.json` em [`installation-profiles/`](./installation-profiles/).
+
+### Perfis expostos pela ferramenta
+
+Os comandos `install`/`update`/`list-profiles` resolvem o perfil pelo **nome
+registrado** em
+[`src/Helpers/LoadAllInstalationProfiles.js`](./src/Helpers/LoadAllInstalationProfiles.js).
+Atualmente, apenas três nomes estão registrados:
+
+| Nome do perfil | Arquivo | Origem | Repositórios instalados |
+|----------------|---------|--------|-------------------------|
+| `release-minimal` | `github-release-minimal.install.json` | GitHub Release | `EssentialRepo` |
+| `release-standard` | `github-release-standard.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
+| `localfs-release-standard` | `localfs-release-standard.install.json` | Sistema de arquivos local | `EssentialRepo`, `EcosystemCoreRepo` |
+
+```bash
+mywizard list-profiles    # lista exatamente esses três nomes
+```
+
+### Arquivos de perfil disponíveis em `installation-profiles/`
+
+Além dos três registrados acima, existem outros arquivos `*.install.json` no
+diretório (úteis como modelo). O nome segue a convenção
+`[dev-]<origem>-<escopo>`:
+
+- **Uso/destino:** `dev-*` instala em `~/Workspaces/meta-platform-repo/EcosystemData`
+  (desenvolvimento); os demais instalam em `~/EcosystemData`.
+- **Origem (`sourceType`):** `*localfs*` usa `LOCAL_FS` (lê os repositórios do
+  disco); `*github-release*` usa `GITHUB_RELEASE`.
+- **Escopo:** `minimal` = só `EssentialRepo`; `standard` = `EssentialRepo` +
+  `EcosystemCoreRepo`; `full` = + `PlatformApplicationsRepo`.
+
+| Arquivo | Destino | Origem | Escopo |
+|---------|---------|--------|--------|
+| `dev-github-release-minimal.install.json` | `~/Workspaces/.../EcosystemData` | GITHUB_RELEASE | minimal |
+| `dev-github-release-standard.install.json` | `~/Workspaces/.../EcosystemData` | GITHUB_RELEASE | standard |
+| `dev-localfs-minimal.install.json` | `~/Workspaces/.../EcosystemData` | LOCAL_FS | minimal |
+| `dev-localfs-standard.install.json` | `~/Workspaces/.../EcosystemData` | LOCAL_FS | standard |
+| `dev-localfs-full.install.json` | `~/Workspaces/.../EcosystemData` | LOCAL_FS | full |
+| `github-release-minimal.install.json` | `~/EcosystemData` | GITHUB_RELEASE | minimal |
+| `github-release-standard.install.json` | `~/EcosystemData` | GITHUB_RELEASE | standard |
+| `localfs-release-standard.install.json` | `~/EcosystemData` | LOCAL_FS | standard |
+
+> **Inconsistências observadas no código (`v0.0.19`) — `> TODO: confirmar`:**
+> - O valor padrão de `--profile` em `install`/`update` é `standard`, que **não**
+>   está registrado em `LoadAllInstalationProfiles`; rodar `mywizard install`
+>   sem `--profile` falha ao resolver o perfil.
+> - Os arquivos `dev-*` e `github-release-*` existem no diretório, mas **não**
+>   estão registrados em `LoadAllInstalationProfiles`, portanto não são
+>   selecionáveis por nome em `install`/`update`.
+> - O comando `show-profile` aponta para arquivos que não existem no diretório
+>   (`dev-minimal`, `dev-standard`, `minimal`, `standard`) e lê campos com nomes
+>   antigos (`repositoryNamespace`, `appsToInstall`), divergindo do formato real
+>   descrito a seguir.
+
+### Estrutura de um arquivo `.install.json`
+
+```json
+{
+    "installationDataDir": "~/EcosystemData",
+    "repositoriesToInstall": [
+        {
+            "namespace": "EssentialRepo",
+            "sourceType": "LOCAL_FS",
+            "executablesToInstall": ["supervisor", "mytoolkit", "repo"]
+        }
+    ]
+}
+```
+
+| Campo | Descrição |
+|-------|-----------|
+| `installationDataDir` | Diretório `EcosystemData` onde o ecossistema será instalado (aceita `~`). Pode ser sobrescrito por `--installation-path`. |
+| `repositoriesToInstall[]` | Lista de repositórios a instalar. |
+| `repositoriesToInstall[].namespace` | Nome do repositório; deve existir em [`configs/repository-sources.json`](./configs/repository-sources.json). |
+| `repositoriesToInstall[].sourceType` | Origem: `LOCAL_FS`, `GITHUB_RELEASE` ou `GOOGLE_DRIVE`. |
+| `repositoriesToInstall[].executablesToInstall` | Executáveis (de `metadata/applications.json` do repositório) a instalar em `EcosystemData/executables/`. |
+
+### A pasta `configs/`
+
+Configurações internas usadas pela ferramenta (não confundir com os perfis):
+
+| Arquivo | Conteúdo |
+|---------|----------|
+| [`repository-sources.json`](./configs/repository-sources.json) | Fontes de cada repositório por `namespace` (LOCAL_FS/GITHUB_RELEASE/GOOGLE_DRIVE). Cruzado com `repositoriesToInstall` por [`BuildRepositoriesInstallData.js`](./src/Helpers/BuildRepositoriesInstallData.js). |
+| [`ecosystem-defaults.json`](./configs/ecosystem-defaults.json) | Parâmetros padrão gravados no ecossistema instalado (ver [Open Standard](../meta-platform-open-standard/specifications/metadados/ecosystem-defaults.json)). |
+| [`npm-dependencies.json`](./configs/npm-dependencies.json) | Dependências NPM mínimas instaladas no ecossistema. |
+| [`meta-platform-dependencies.json`](./configs/meta-platform-dependencies.json) | Libs do `EssentialRepo` carregadas via *script loader* (ex.: `ecosystem-install-utilities.lib`). |
+| [`app-params-dev.json`](./configs/app-params-dev.json) / [`app-params-release.json`](./configs/app-params-release.json) | Parâmetros do repositório mínimo usado para inicializar o *script loader* (`MINIMUM_REPO_*`). O código atual importa o de **release**. |
 
 ## Comandos Disponíveis
 
@@ -97,7 +187,7 @@ Escolha o perfil de instalação desejado.
 ./mywizard install --profile "<nome_do_perfil>"
 ```
 
-##### Exemplos:
+##### Exemplos:npm install -g @openai/codex
 
 ```bash
 ./mywizard install --profile dev-localfs-standard
@@ -134,17 +224,12 @@ Escolha o perfil de instalação desejado para atualizar.
 ./mywizard update --profile localfs-release-standard
 ```
 
-#### Atualização a partir de um arquivo de instalação
-
-```bash
-./mywizard update --installation-file "<caminho_do_arquivo_de_instalação>"
-```
-
-##### Exemplos:
-
-```bash
-./mywizard update --installation-file ~/xpto.install.json
-```
+> **Nota — `> TODO: confirmar`:** a opção `--installation-file` aparecia em
+> versões antigas deste README, mas o código atual
+> ([`src/Executables/mywizard.js`](./src/Executables/mywizard.js)) define apenas
+> as opções `[profile]` e `[installation-path]` para `update`. Use
+> `--profile`/`--installation-path` (ou as posições equivalentes
+> `update <profile> <installation-path>`).
 ## Configuração do projeto
 
 Para começar a usar o Daemon Management Command-line do Meta Platform no seu sistema, siga os passos abaixo:
