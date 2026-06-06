@@ -108,7 +108,8 @@ configs/                 # configurações internas (ver docs/config-files.md)
 | `show-profile` não funciona | Bug conhecido; use `list-profiles` e inspecione o `*.install.json`. Ver [known-issues](./docs/known-issues.md). |
 | Comandos do ecossistema não encontrados após instalar | Garanta `EcosystemData/executables` no `PATH`. |
 
-Lista completa de inconsistências: [docs/known-issues.md](./docs/known-issues.md).
+Guia completo: [docs/troubleshooting.md](./docs/troubleshooting.md). Lista de
+inconsistências conhecidas: [docs/known-issues.md](./docs/known-issues.md).
 
 ## Links relacionados
 
