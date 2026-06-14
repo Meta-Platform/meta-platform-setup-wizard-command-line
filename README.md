@@ -34,12 +34,19 @@ chmod +x mywizard
 ./mywizard --help
 ```
 
+> O binário é **autocontido** (empacotado com [`pkg`](https://github.com/vercel/pkg),
+> target `node18-linux-x64` no script `build`): **não exige Node.js instalado**
+> para ser executado.
+
 ### Opção B — a partir do código (desenvolvimento)
 
 ```bash
 npm install
 npm link        # disponibiliza o comando `mywizard` globalmente
 ```
+
+> Requer **Node.js** instalado. O `package.json` não declara `engines`; o build
+> oficial visa `node18-linux-x64`, então uma versão LTS atual (18+) atende.
 
 ## Uso rápido
 
