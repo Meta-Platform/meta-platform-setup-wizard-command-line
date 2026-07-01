@@ -14,7 +14,7 @@
         {
             "namespace": "PlatformApplicationsRepo",
             "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["api", "developer", "sources"]
+            "executablesToInstall": ["api-designer-webapp", "api-designer-desktop", "developer", "sources"]
         }
     ]
 }
