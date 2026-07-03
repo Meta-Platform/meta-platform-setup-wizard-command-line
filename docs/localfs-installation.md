@@ -24,7 +24,7 @@ O perfil registrado que usa `LOCAL_FS` é **`localfs-release-standard`**
 ```bash
 mywizard install --profile localfs-release-standard
 # instalar em outro caminho
-mywizard install --profile localfs-release-standard --installation-path "~/meu-projeto/EcosystemData"
+mywizard install --profile localfs-release-standard --installation-path ~/meu-projeto/EcosystemData
 ```
 
 ## O que acontece

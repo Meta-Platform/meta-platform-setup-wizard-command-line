@@ -34,8 +34,12 @@ chmod +x mywizard
 ./mywizard --help
 ```
 
-> O binário é **autocontido** (empacotado com [`pkg`](https://github.com/vercel/pkg),
-> target `node18-linux-x64` no script `build`): **não exige Node.js instalado**
+> **Nota:** o asset publicado na release 0.0.19 usa o sufixo `-preview-` (a URL
+> acima funciona), mas o script `build` atual gera o nome com sufixo `-alpha-` —
+> uma futura re-release pode mudar a URL (ver a ERRATA da doc central).
+
+> O binário é **autocontido** (empacotado com [`@yao-pkg/pkg`](https://github.com/yao-pkg/pkg),
+> target `node22-linux-x64` no script `build`): **não exige Node.js instalado**
 > para ser executado.
 
 ### Opção B — a partir do código (desenvolvimento)
@@ -46,7 +50,7 @@ npm link        # disponibiliza o comando `mywizard` globalmente
 ```
 
 > Requer **Node.js** instalado. O `package.json` não declara `engines`; o build
-> oficial visa `node18-linux-x64`, então uma versão LTS atual (18+) atende.
+> oficial visa `node22-linux-x64`, então uma versão LTS atual (22+) atende.
 
 ## Uso rápido
 
@@ -54,7 +58,7 @@ npm link        # disponibiliza o comando `mywizard` globalmente
 mywizard list-profiles                       # lista os perfis registrados
 mywizard install --profile release-standard  # instala um ecossistema
 mywizard update  --profile release-standard  # atualiza
-mywizard install --profile release-standard --installation-path "~/meu-projeto/EcosystemData"
+mywizard install --profile release-standard --installation-path ~/meu-projeto/EcosystemData
 ```
 
 ## Comandos (comportamento confirmado)

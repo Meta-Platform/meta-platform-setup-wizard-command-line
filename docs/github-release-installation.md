@@ -26,7 +26,7 @@ Os perfis registrados que usam `GITHUB_RELEASE`:
 ```bash
 mywizard install --profile release-minimal
 mywizard install --profile release-standard
-mywizard install --profile release-standard --installation-path "~/meu-projeto/EcosystemData"
+mywizard install --profile release-standard --installation-path ~/meu-projeto/EcosystemData
 ```
 
 ## O que acontece
