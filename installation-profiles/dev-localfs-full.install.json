@@ -9,12 +9,12 @@
         {
             "namespace": "EcosystemCoreRepo",
             "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["executor-manager", "executor", "explorer", "super-dash", "executor-panel", "eco-panel"]
+            "executablesToInstall": ["executor-manager", "executor", "explorer", "super-dash", "executor-panel", "eco-panel", "mypkg"]
         },
         {
             "namespace": "PlatformApplicationsRepo",
             "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["api-designer-webapp", "api-designer-desktop", "developer", "sources"]
+            "executablesToInstall": ["api-designer-webapp", "api-designer-desktop", "developer", "developer-desktop", "sources", "sources-desktop"]
         }
     ]
 }
