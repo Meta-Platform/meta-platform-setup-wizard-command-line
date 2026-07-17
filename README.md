@@ -29,7 +29,7 @@ Quando você quer **instalar ou atualizar** um ecossistema Meta Platform na máq
 ### Opção A — release binária
 
 ```bash
-wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.20/meta-platform-setup-wizard-command-line-0.0.20-preview-linux-x64 -O mywizard
+wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.21/meta-platform-setup-wizard-command-line-0.0.21-preview-linux-x64 -O mywizard
 chmod +x mywizard
 ./mywizard --help
 ```
