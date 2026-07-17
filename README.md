@@ -73,18 +73,26 @@ Confirmado em [`src/Executables/mywizard.js`](./src/Executables/mywizard.js):
 
 - `profile` / `--profile` e `installation-path` / `--installation-path` aceitam
   forma posicional ou de flag.
-- **Sempre informe `--profile`** com um perfil registrado (o default interno
-  `standard` não é um perfil válido — ver [docs/known-issues.md](./docs/known-issues.md)).
+- **`--profile` é obrigatório** em `install` e `update`. Um nome não registrado
+  falha listando os perfis disponíveis.
 - O comando `show-profile` existe no CLI, mas está **quebrado** na versão atual —
   ver [docs/known-issues.md](./docs/known-issues.md).
 
 ## Perfis registrados
 
-| Nome (`--profile`) | Origem | Repositórios |
-|--------------------|--------|--------------|
-| `release-minimal` | GitHub Release | `EssentialRepo` |
-| `release-standard` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
-| `localfs-release-standard` | Sistema de arquivos local | `EssentialRepo`, `EcosystemCoreRepo` |
+| Nome (`--profile`) | Origem | Destino | Repositórios |
+|--------------------|--------|---------|--------------|
+| `github-release-minimal` | GitHub Release | `~/EcosystemData` | `EssentialRepo` |
+| `github-release-standard` | GitHub Release | `~/EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
+| `localfs-release-standard` | Sistema de arquivos local | `~/EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
+| `dev-github-release-minimal` | GitHub Release | `~/Workspaces/.../EcosystemData` | `EssentialRepo` |
+| `dev-github-release-standard` | GitHub Release | `~/Workspaces/.../EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
+| `dev-localfs-minimal` | Sistema de arquivos local | `~/Workspaces/.../EcosystemData` | `EssentialRepo` |
+| `dev-localfs-standard` | Sistema de arquivos local | `~/Workspaces/.../EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
+| `dev-localfs-full` | Sistema de arquivos local | `~/Workspaces/.../EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo`, `PlatformApplicationsRepo` |
+
+`release-minimal` e `release-standard` seguem válidos como apelidos de
+`github-release-minimal` e `github-release-standard`.
 
 Detalhes, formato do `.install.json` e convenção de nomes:
 [docs/installation-profiles.md](./docs/installation-profiles.md).
@@ -115,7 +123,7 @@ configs/                 # configurações internas (ver docs/config-files.md)
 
 | Sintoma | Solução |
 |---------|---------|
-| `mywizard install` falha sem `--profile` | Informe um perfil registrado (`release-minimal`, `release-standard`, `localfs-release-standard`). |
+| `mywizard install` falha sem `--profile` | `--profile` é obrigatório; rode `mywizard list-profiles` para ver os nomes. |
 | `show-profile` não funciona | Bug conhecido; use `list-profiles` e inspecione o `*.install.json`. Ver [known-issues](./docs/known-issues.md). |
 | Comandos do ecossistema não encontrados após instalar | Garanta `EcosystemData/executables` no `PATH`. |
 

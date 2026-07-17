@@ -9,18 +9,32 @@ Um **Installation Profile** (`*.install.json`) descreve **o que** instalar
 Confirmado em
 [`src/Helpers/LoadAllInstalationProfiles.js`](../src/Helpers/LoadAllInstalationProfiles.js):
 
+Todo arquivo `*.install.json` do diretório é selecionável pelo seu nome (sem o
+sufixo `.install.json`):
+
 | Nome (`--profile`) | Arquivo | Origem | Repositórios |
 |--------------------|---------|--------|--------------|
-| `release-minimal` | `github-release-minimal.install.json` | GitHub Release | `EssentialRepo` |
-| `release-standard` | `github-release-standard.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
+| `github-release-minimal` | `github-release-minimal.install.json` | GitHub Release | `EssentialRepo` |
+| `github-release-standard` | `github-release-standard.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
 | `localfs-release-standard` | `localfs-release-standard.install.json` | Sistema de arquivos local | `EssentialRepo`, `EcosystemCoreRepo` |
+| `dev-github-release-minimal` | `dev-github-release-minimal.install.json` | GitHub Release | `EssentialRepo` |
+| `dev-github-release-standard` | `dev-github-release-standard.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
+| `dev-localfs-minimal` | `dev-localfs-minimal.install.json` | Sistema de arquivos local | `EssentialRepo` |
+| `dev-localfs-standard` | `dev-localfs-standard.install.json` | Sistema de arquivos local | `EssentialRepo`, `EcosystemCoreRepo` |
+| `dev-localfs-full` | `dev-localfs-full.install.json` | Sistema de arquivos local | `EssentialRepo`, `EcosystemCoreRepo`, `PlatformApplicationsRepo` |
 
 ```bash
-mywizard list-profiles    # lista exatamente esses três nomes
+mywizard list-profiles
 ```
 
-> Outros arquivos `*.install.json` existem no diretório como **modelo**, mas não
-> são selecionáveis por nome (ver [known-issues.md](./known-issues.md)).
+> `release-minimal` e `release-standard` continuam aceitos como apelidos de
+> `github-release-minimal` e `github-release-standard` — eram os nomes
+> publicados até a `v0.0.19`.
+
+> Ao adicionar um novo `*.install.json`, registre-o em
+> [`src/Helpers/LoadAllInstalationProfiles.js`](../src/Helpers/LoadAllInstalationProfiles.js).
+> O registro é estático (`require`) de propósito: o build `pkg` só embute
+> arquivos referenciados estaticamente.
 
 ## Estrutura de um arquivo `.install.json`
 

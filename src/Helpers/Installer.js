@@ -23,6 +23,11 @@ const Installer = async ({
     const installationProfiles = LoadAllInstalationProfiles()
     const instalationData = installationProfiles[profile]
 
+    if(!instalationData){
+        const availableProfiles = Object.keys(installationProfiles).join(", ")
+        throw new Error(`Perfil de instalação "${profile}" não encontrado. Perfis disponíveis: ${availableProfiles}`)
+    }
+
     const { repositoriesToInstall, installationDataDir } = instalationData
 
     const repositoriesInstallData = 

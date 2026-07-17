@@ -13,7 +13,8 @@ const { argv } = yargs(hideBin(process.argv))
 	.command('install [profile] [installation-path]', 'Instala um ecosistema conforme o perfil especificado', {
 		profile: {
 			describe: 'Perfil de instalação',
-			default: 'standard'
+			type: 'string',
+			demandOption: true
 		},
 		'installation-path': {
 			describe: 'Caminho personalizado para os dados de instalação',
@@ -23,8 +24,8 @@ const { argv } = yargs(hideBin(process.argv))
 	.command('update [profile] [installation-path]', 'Atualiza os repositórios, executáveis e binários de um ecosistema instalado', {
 		profile: {
 			describe: 'Perfil de instalação',
-			default: 'standard',
-			type: 'string'
+			type: 'string',
+			demandOption: true
 		},
 		'installation-path': {
 			describe: 'Caminho personalizado para os dados de instalação',
