@@ -7,6 +7,9 @@ const REPOSITORY_SOURCES = require("../../configs/repository-sources.json")
 const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfiles")
 
 const BuildRepositoriesInstallData = require("./BuildRepositoriesInstallData")
+const InstallLogger = require("./InstallLogger")
+
+const LEVEL_BY_TYPE = { info : "info", success : "message", warning : "warn", error : "error" }
 
 const Installer = async ({ 
     profile, 
@@ -14,11 +17,7 @@ const Installer = async ({
     LoaderScript
 }) => {
     
-    const PrintDataLog = LoaderScript("print-data-log.lib/src/PrintDataLog")
     const InstallEcosystemByProfile = LoaderScript("ecosystem-install-utilities.lib/src/InstallEcosystemByProfile")
-
-    const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "Installer"))
 
     const installationProfiles = LoadAllInstalationProfiles()
     const instalationData = installationProfiles[profile]
@@ -29,6 +28,18 @@ const Installer = async ({
     }
 
     const { repositoriesToInstall, installationDataDir } = instalationData
+
+    /*
+     * Substitui o logger mínimo do cli-script-loader pela lib canônica, agora
+     * que o EssentialRepo já está disponível ao LoaderScript. A instalação de
+     * um ecossistema passa a deixar histórico em disco — até aqui ela só
+     * existia enquanto o terminal estivesse aberto.
+     */
+    InstallLogger({ LoaderScript, installationDataDir, ecosystemDefaults: ECOSYSTEM_DEFAULTS, origin: "wizard" })
+
+    const loggerEmitter = new EventEmitter()
+	loggerEmitter.on("log", (dataLog) =>
+		Log[LEVEL_BY_TYPE[dataLog.type] || "info"](dataLog.sourceName, dataLog.message))
 
     const repositoriesInstallData = 
         BuildRepositoriesInstallData({ repositoriesToInstall, sources: REPOSITORY_SOURCES})   

@@ -7,6 +7,9 @@ const REPOSITORY_SOURCES = require("../../configs/repository-sources.json")
 const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfiles")
 
 const BuildRepositoriesInstallData = require("./BuildRepositoriesInstallData")
+const InstallLogger = require("./InstallLogger")
+
+const LEVEL_BY_TYPE = { info : "info", success : "message", warning : "warn", error : "error" }
 
 const Updater = async ({ 
     profile, 
@@ -14,11 +17,7 @@ const Updater = async ({
     LoaderScript
 }) => {
     
-    const PrintDataLog = LoaderScript("print-data-log.lib/src/PrintDataLog")
     const UpdateEcosystemByProfile = LoaderScript("ecosystem-install-utilities.lib/src/UpdateEcosystemByProfile")
-
-    const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) => PrintDataLog(dataLog, "Updater"))
 
     const installationProfiles = LoadAllInstalationProfiles()
     const instalationData = installationProfiles[profile]
@@ -29,6 +28,13 @@ const Updater = async ({
     }
 
     const { repositoriesToInstall, installationDataDir } = instalationData
+
+    /* Ver a nota em Installer.js: a lib canônica assume o lugar da mínima. */
+    InstallLogger({ LoaderScript, installationDataDir, ecosystemDefaults: ECOSYSTEM_DEFAULTS, origin: "wizard" })
+
+    const loggerEmitter = new EventEmitter()
+	loggerEmitter.on("log", (dataLog) =>
+		Log[LEVEL_BY_TYPE[dataLog.type] || "info"](dataLog.sourceName, dataLog.message))
 
     const repositoriesInstallData = 
         BuildRepositoriesInstallData({ repositoriesToInstall, sources: REPOSITORY_SOURCES})   
