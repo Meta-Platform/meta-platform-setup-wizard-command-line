@@ -1,5 +1,3 @@
-const EventEmitter = require('events')
-
 const ECOSYSTEM_DEFAULTS = require("../../configs/ecosystem-defaults.json")
 const NPM_DEPENDENCIES =  require("../../configs/npm-dependencies.json")
 const REPOSITORY_SOURCES = require("../../configs/repository-sources.json")
@@ -32,10 +30,6 @@ const Updater = async ({
     /* Ver a nota em Installer.js: a lib canônica assume o lugar da mínima. */
     InstallLogger({ LoaderScript, installationDataDir, ecosystemDefaults: ECOSYSTEM_DEFAULTS, origin: "wizard" })
 
-    const loggerEmitter = new EventEmitter()
-	loggerEmitter.on("log", (dataLog) =>
-		Log[LEVEL_BY_TYPE[dataLog.type] || "info"](dataLog.sourceName, dataLog.message))
-
     const repositoriesInstallData = 
         BuildRepositoriesInstallData({ repositoriesToInstall, sources: REPOSITORY_SOURCES})   
 
@@ -46,22 +40,13 @@ const Updater = async ({
             profile,
             installationDataDir,
             repositoriesInstallData,
-            installationPath,
-            loggerEmitter
+            installationPath
         })
     } catch(e){
        
-        loggerEmitter && loggerEmitter.emit("log", {
-            sourceName: "Updater",
-            type: "error",
-            message: e
-        })
+        Log.error("Updater", e)
 
-        loggerEmitter && loggerEmitter.emit("log", {
-            sourceName: "Updater",
-            type: "error",
-            message: `A atualização cancelada!`
-        })
+        Log.error("Updater", `A atualização cancelada!`)
 
         throw e
     }
