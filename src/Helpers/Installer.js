@@ -53,8 +53,23 @@ const Installer = async ({
         /* Relato protegido: sem isto, um `Log` ainda não instalado transformava
            a falha da instalação em "Log is not defined" e escondia a causa. */
         ReportFailure("Installer", "A instalação cancelada!", e)
+
+        /*
+         * E a falha PROPAGA. Sem isto, `mywizard install` relatava o erro e saía
+         * com 0 — quem chamou seguia sobre uma instalação incompleta.
+         *
+         * O custo disso foi medido: no build 186 da plataforma VirtualDesk a
+         * instalação foi interrompida, o wizard devolveu sucesso, o Dockerfile
+         * avançou e só quebrou dois passos depois, em
+         * `repo register source ... returned a non-zero code: 127` — "comando não
+         * encontrado", porque o executável nunca chegou a ser criado. O sintoma
+         * apontava para o repo; o problema estava na instalação.
+         *
+         * `Updater.js` já propagava; aqui era a assimetria.
+         */
+        throw e
     }
-    
+
 }
 
 module.exports = Installer
