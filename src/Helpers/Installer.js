@@ -6,6 +6,7 @@ const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfile
 
 const BuildRepositoriesInstallData = require("./BuildRepositoriesInstallData")
 const InstallLogger = require("./InstallLogger")
+const ReportFailure = require("./ReportFailure")
 
 const LEVEL_BY_TYPE = { info : "info", success : "message", warning : "warn", error : "error" }
 
@@ -49,8 +50,9 @@ const Installer = async ({
             installationPath
         })
     } catch(e){
-        Log.error("Installer", `A instalação cancelada!`)
-        Log.error("Installer", e)
+        /* Relato protegido: sem isto, um `Log` ainda não instalado transformava
+           a falha da instalação em "Log is not defined" e escondia a causa. */
+        ReportFailure("Installer", "A instalação cancelada!", e)
     }
     
 }
