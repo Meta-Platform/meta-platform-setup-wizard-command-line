@@ -2,7 +2,7 @@
     "EssentialRepo": [
         {
             "sourceType":"LOCAL_FS",
-            "path": "~/Workspaces/meta-platform-repo/repos/essential-repository"
+            "path": "{{WORKSPACE}}/repos/essential-repository"
         },
         {
             "sourceType":"GITHUB_RELEASE",
@@ -17,7 +17,7 @@
     "EcosystemCoreRepo": [
         {
             "sourceType":"LOCAL_FS",
-            "path": "~/Workspaces/meta-platform-repo/repos/ecosystem-core-repository"
+            "path": "{{WORKSPACE}}/repos/ecosystem-core-repository"
         },
         {
             "sourceType":"GITHUB_RELEASE",
@@ -32,7 +32,7 @@
     "PlatformApplicationsRepo": [
         {
             "sourceType":"LOCAL_FS",
-            "path": "~/Workspaces/meta-platform-repo/repos/applications-repository"
+            "path": "{{WORKSPACE}}/repos/applications-repository"
         }
     ]
 }

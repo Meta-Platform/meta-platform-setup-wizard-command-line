@@ -5,6 +5,7 @@ const REPOSITORY_SOURCES = require("../../configs/repository-sources.json")
 const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfiles")
 
 const BuildRepositoriesInstallData = require("./BuildRepositoriesInstallData")
+const PrepareRepositorySources    = require("./PrepareRepositorySources")
 const InstallLogger = require("./InstallLogger")
 const ReportFailure = require("./ReportFailure")
 
@@ -36,14 +37,23 @@ const Installer = async ({
      */
     InstallLogger({ LoaderScript, installationDataDir, ecosystemDefaults: ECOSYSTEM_DEFAULTS, origin: "wizard" })
 
-    const repositoriesInstallData = 
-        BuildRepositoriesInstallData({ repositoriesToInstall, sources: REPOSITORY_SOURCES})   
+    /*
+     * As MESMAS fontes alimentam a instalação e o `sources.json` do ecossistema:
+     * só os repositórios deste perfil, já com o caminho de workspace resolvido.
+     * Usar o catálogo cru aqui registrava, numa instalação de usuário, fontes de
+     * repositórios que o perfil não instala, apontando para diretórios que só
+     * existem na máquina de quem desenvolve a plataforma.
+     */
+    const repositorySources = PrepareRepositorySources({ repositoriesToInstall, sources: REPOSITORY_SOURCES })
+
+    const repositoriesInstallData =
+        BuildRepositoriesInstallData({ repositoriesToInstall, sources: repositorySources})
 
     try{
         await InstallEcosystemByProfile({
             ecosystemDefaults : ECOSYSTEM_DEFAULTS,
             npmDependencies : NPM_DEPENDENCIES,
-            initialRepositorySource: REPOSITORY_SOURCES,
+            initialRepositorySource: repositorySources,
             profile,
             installationDataDir,
             repositoriesInstallData,

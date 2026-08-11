@@ -5,6 +5,7 @@ const REPOSITORY_SOURCES = require("../../configs/repository-sources.json")
 const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfiles")
 
 const BuildRepositoriesInstallData = require("./BuildRepositoriesInstallData")
+const PrepareRepositorySources    = require("./PrepareRepositorySources")
 const InstallLogger = require("./InstallLogger")
 const ReportFailure = require("./ReportFailure")
 
@@ -31,8 +32,14 @@ const Updater = async ({
     /* Ver a nota em Installer.js: a lib canônica assume o lugar da mínima. */
     InstallLogger({ LoaderScript, installationDataDir, ecosystemDefaults: ECOSYSTEM_DEFAULTS, origin: "wizard" })
 
-    const repositoriesInstallData = 
-        BuildRepositoriesInstallData({ repositoriesToInstall, sources: REPOSITORY_SOURCES})   
+    /* Mesma preparação da instalação: o caminho de workspace do catálogo é um
+       placeholder, e resolvê-lo aqui também mantém `update` e `install` usando
+       exatamente a mesma fonte para o mesmo perfil. */
+    const repositoriesInstallData =
+        BuildRepositoriesInstallData({
+            repositoriesToInstall,
+            sources: PrepareRepositorySources({ repositoriesToInstall, sources: REPOSITORY_SOURCES })
+        })
 
     try{
         await UpdateEcosystemByProfile({
