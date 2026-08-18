@@ -29,10 +29,15 @@ Quando você quer **instalar ou atualizar** um ecossistema Meta Platform na máq
 ### Opção A — release binária
 
 ```bash
-wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/0.0.21/meta-platform-setup-wizard-command-line-0.0.21-preview-linux-x64 -O mywizard
+VERSAO=0.0.26
+wget https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases/download/$VERSAO/meta-platform-setup-wizard-command-line-$VERSAO-preview-linux-x64 -O mywizard
 chmod +x mywizard
 ./mywizard --help
 ```
+
+> A versão mais recente está sempre em
+> [releases](https://github.com/Meta-Platform/meta-platform-setup-wizard-command-line/releases);
+> troque `VERSAO` se esta linha tiver envelhecido.
 
 > O binário é **autocontido** (empacotado com [`@yao-pkg/pkg`](https://github.com/yao-pkg/pkg),
 > target `node22-linux-x64` no script `build`): **não exige Node.js instalado**

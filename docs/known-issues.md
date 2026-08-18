@@ -1,7 +1,7 @@
 # Known Issues — Setup Wizard
 
 Inconsistências e limitações **confirmadas no código** entre o comportamento
-esperado e o real. Atualizado para a `v0.0.21`.
+esperado e o real. Atualizado para a `v0.0.26`.
 
 ## 1. `show-profile` está quebrado
 
