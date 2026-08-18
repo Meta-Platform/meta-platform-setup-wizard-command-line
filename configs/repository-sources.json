@@ -1,38 +1,43 @@
 {
     "EssentialRepo": [
         {
-            "sourceType":"LOCAL_FS",
+            "sourceType": "LOCAL_FS",
             "path": "{{WORKSPACE}}/repos/essential-repository"
         },
         {
-            "sourceType":"GITHUB_RELEASE",
-            "repositoryName":"meta-platform-essential-repository",
+            "sourceType": "GITHUB_RELEASE",
+            "repositoryName": "meta-platform-essential-repository",
             "repositoryOwner": "Meta-Platform"
         },
         {
-            "sourceType":"GOOGLE_DRIVE",
+            "sourceType": "GOOGLE_DRIVE",
             "fileId": "12PKZU1Uea1yYnhO7R26Il9eyF__v6MAc"
         }
     ],
     "EcosystemCoreRepo": [
         {
-            "sourceType":"LOCAL_FS",
+            "sourceType": "LOCAL_FS",
             "path": "{{WORKSPACE}}/repos/ecosystem-core-repository"
         },
         {
-            "sourceType":"GITHUB_RELEASE",
-            "repositoryName":"meta-platform-ecosystem-core-repository",
+            "sourceType": "GITHUB_RELEASE",
+            "repositoryName": "meta-platform-ecosystem-core-repository",
             "repositoryOwner": "Meta-Platform"
         },
         {
-            "sourceType":"GOOGLE_DRIVE",
+            "sourceType": "GOOGLE_DRIVE",
             "fileId": "1-PuPdjU36acGmoPgusYWrMuhyGyMnoRI"
         }
     ],
     "PlatformApplicationsRepo": [
         {
-            "sourceType":"LOCAL_FS",
+            "sourceType": "LOCAL_FS",
             "path": "{{WORKSPACE}}/repos/applications-repository"
+        },
+        {
+            "sourceType": "GITHUB_RELEASE",
+            "repositoryName": "meta-platform-applications-repository",
+            "repositoryOwner": "Meta-Platform"
         }
     ]
 }

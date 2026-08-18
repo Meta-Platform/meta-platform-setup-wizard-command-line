@@ -80,6 +80,7 @@ Confirmado em [`src/Executables/mywizard.js`](./src/Executables/mywizard.js):
 |--------------------|--------|---------|--------------|
 | `github-release-minimal` | GitHub Release | `~/EcosystemData` | `EssentialRepo` |
 | `github-release-standard` | GitHub Release | `~/EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
+| `github-release-full` | GitHub Release | `~/EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo`, `PlatformApplicationsRepo` |
 | `localfs-release-standard` | Sistema de arquivos local | `~/EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
 | `dev-github-release-minimal` | GitHub Release | `~/Workspaces/.../EcosystemData` | `EssentialRepo` |
 | `dev-github-release-standard` | GitHub Release | `~/Workspaces/.../EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
@@ -87,8 +88,9 @@ Confirmado em [`src/Executables/mywizard.js`](./src/Executables/mywizard.js):
 | `dev-localfs-standard` | Sistema de arquivos local | `~/Workspaces/.../EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo` |
 | `dev-localfs-full` | Sistema de arquivos local | `~/Workspaces/.../EcosystemData` | `EssentialRepo`, `EcosystemCoreRepo`, `PlatformApplicationsRepo` |
 
-`release-minimal` e `release-standard` seguem válidos como apelidos de
-`github-release-minimal` e `github-release-standard`.
+`release-minimal`, `release-standard` e `release-full` seguem válidos como
+apelidos de `github-release-minimal`, `github-release-standard` e
+`github-release-full`.
 
 Detalhes, formato do `.install.json` e convenção de nomes:
 [docs/installation-profiles.md](./docs/installation-profiles.md).

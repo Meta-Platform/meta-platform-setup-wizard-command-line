@@ -16,6 +16,7 @@ sufixo `.install.json`):
 |--------------------|---------|--------|--------------|
 | `github-release-minimal` | `github-release-minimal.install.json` | GitHub Release | `EssentialRepo` |
 | `github-release-standard` | `github-release-standard.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
+| `github-release-full` | `github-release-full.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo`, `PlatformApplicationsRepo` |
 | `localfs-release-standard` | `localfs-release-standard.install.json` | Sistema de arquivos local | `EssentialRepo`, `EcosystemCoreRepo` |
 | `dev-github-release-minimal` | `dev-github-release-minimal.install.json` | GitHub Release | `EssentialRepo` |
 | `dev-github-release-standard` | `dev-github-release-standard.install.json` | GitHub Release | `EssentialRepo`, `EcosystemCoreRepo` |
@@ -27,6 +28,8 @@ sufixo `.install.json`):
 mywizard list-profiles
 ```
 
+> `release-full` é apelido de `github-release-full`.
+>
 > `release-minimal` e `release-standard` continuam aceitos como apelidos de
 > `github-release-minimal` e `github-release-standard` — eram os nomes
 > publicados até a `v0.0.19`.

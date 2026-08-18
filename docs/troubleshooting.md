@@ -3,7 +3,7 @@
 | Sintoma | Causa provável / solução |
 |---------|--------------------------|
 | `mywizard install` falha sem `--profile` | `--profile` é **obrigatório** (`demandOption`): o yargs recusa com `Missing required argument: profile`. Informe um perfil registrado (veja `list-profiles`). |
-| Perfil não encontrado (ex.: `dev-localfs-standard`) | Esse nome **não** está registrado (é só um arquivo modelo). Use um dos registrados. Ver [installation-profiles](./installation-profiles.md). |
+| Perfil não encontrado | O nome informado não está entre os registrados. Rode `mywizard list-profiles` para ver a lista corrente — ela é a fonte da verdade, não a documentação. Ver [installation-profiles](./installation-profiles.md). |
 | `show-profile` não mostra nada / erro | Comando **quebrado** na versão atual (aponta para arquivos inexistentes). Use `list-profiles` e inspecione o `*.install.json`. Ver [known-issues](./known-issues.md). |
 | `install` aborta com `fetch failed` / `UND_ERR_CONNECT_TIMEOUT` | Intermitência do GitHub (`codeload.github.com`/`github.com`). A partir da `v0.0.21` os downloads reexecutam 6× com backoff exponencial; se ainda assim falhar após as tentativas, o GitHub está indisponível — repita mais tarde. Ver [known-issues](./known-issues.md). |
 | `install` "concluiu" mas `repos/`/`executables/` estão vazios | O install retorna exit code 0 mesmo ao falhar. Cheque o log por `A instalação cancelada!`. Ver [known-issues](./known-issues.md) item 4. |

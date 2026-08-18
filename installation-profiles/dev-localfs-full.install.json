@@ -1,20 +1,37 @@
 {
-    "installationDataDir":"~/Workspaces/meta-platform-repo/EcosystemData",
-    "repositoriesToInstall":[
+    "installationDataDir": "~/Workspaces/meta-platform-repo/EcosystemData",
+    "repositoriesToInstall": [
         {
             "namespace": "EssentialRepo",
-            "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["supervisor", "mytoolkit", "repo"]
+            "sourceType": "LOCAL_FS",
+            "executablesToInstall": [
+                "supervisor",
+                "mytoolkit",
+                "repo"
+            ]
         },
         {
             "namespace": "EcosystemCoreRepo",
-            "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["executor-manager", "executor", "explorer", "super-dash", "executor-panel", "eco-panel", "mypkg"]
+            "sourceType": "LOCAL_FS",
+            "executablesToInstall": [
+                "executor-manager",
+                "executor",
+                "explorer",
+                "eco-panel",
+                "mypkg"
+            ]
         },
         {
             "namespace": "PlatformApplicationsRepo",
-            "sourceType":"LOCAL_FS",
-            "executablesToInstall": ["api-designer-webapp", "api-designer-desktop", "developer", "developer-desktop", "sources", "sources-desktop"]
+            "sourceType": "LOCAL_FS",
+            "executablesToInstall": [
+                "api-designer-webapp",
+                "api-designer-desktop",
+                "developer",
+                "developer-desktop",
+                "sources",
+                "sources-desktop"
+            ]
         }
     ]
 }

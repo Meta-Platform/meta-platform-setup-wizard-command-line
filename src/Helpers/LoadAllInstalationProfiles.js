@@ -1,11 +1,13 @@
 const GITHUB_RELEASE_MINIMAL  = require("../../installation-profiles/github-release-minimal.install.json")
 const GITHUB_RELEASE_STANDARD = require("../../installation-profiles/github-release-standard.install.json")
+const GITHUB_RELEASE_FULL     = require("../../installation-profiles/github-release-full.install.json")
 
 const LoadAllInstalationProfiles = () => {
 
     const INSTALLATION_PROFILES = {
         "github-release-minimal"      : GITHUB_RELEASE_MINIMAL,
         "github-release-standard"     : GITHUB_RELEASE_STANDARD,
+        "github-release-full"         : GITHUB_RELEASE_FULL,
         "localfs-release-standard"    : require("../../installation-profiles/localfs-release-standard.install.json"),
 
         "dev-github-release-minimal"  : require("../../installation-profiles/dev-github-release-minimal.install.json"),
@@ -16,7 +18,8 @@ const LoadAllInstalationProfiles = () => {
 
         // Nomes publicados até a v0.0.19; mantidos para não quebrar quem já os usa.
         "release-minimal"             : GITHUB_RELEASE_MINIMAL,
-        "release-standard"            : GITHUB_RELEASE_STANDARD
+        "release-standard"            : GITHUB_RELEASE_STANDARD,
+        "release-full"                : GITHUB_RELEASE_FULL
     }
 
     return INSTALLATION_PROFILES
