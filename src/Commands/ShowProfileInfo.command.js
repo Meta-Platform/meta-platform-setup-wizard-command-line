@@ -1,37 +1,52 @@
+const LoadAllInstalationProfiles = require("../Helpers/LoadAllInstalationProfiles")
+
+/*
+ * Este comando mantinha a própria lista de perfis -- `dev-minimal`,
+ * `dev-standard`, `minimal`, `standard` -- e nenhum desses arquivos existe mais:
+ * os perfis foram renomeados para `github-release-*` e `dev-localfs-*`. Um
+ * `require` de arquivo inexistente não devolve "perfil não encontrado", derruba
+ * o comando com MODULE_NOT_FOUND antes de qualquer verificação.
+ *
+ * A lista agora sai de LoadAllInstalationProfiles, a mesma que o `list-profiles`
+ * usa. Duas listas do mesmo conjunto divergem -- foi o que aconteceu aqui.
+ *
+ * Os nomes dos campos também estavam defasados: o perfil descreve
+ * `namespace`, `sourceType` e `executablesToInstall`, e este comando lia
+ * `repositoryNamespace`, `repositorySourceType`, `repositoryPath` e
+ * `appsToInstall`. Todos saíam como `undefined`.
+ */
+
+const Colorir = (codigo, texto) => `\x1b[${codigo}m${texto}\x1b[0m`
 
 const ShowProfileInfoCommand = async ({ profile }) => {
-    const INSTALL_PROFILES = {
-        "dev-minimal": require("../../installation-profiles/dev-minimal.install.json"),
-        "dev-standard": require("../../installation-profiles/dev-standard.install.json"),
-        "minimal": require("../../installation-profiles/minimal.install.json"),
-        "standard": require("../../installation-profiles/standard.install.json")
-    }
 
-    const profileContent = INSTALL_PROFILES[profile]
+    const perfis = LoadAllInstalationProfiles()
+    const conteudo = perfis[profile]
 
-    if (!profileContent) {
-        Log.message("ShowProfileInfo", `Perfil "${profile}" não encontrado.`.red)
+    if (!conteudo) {
+        Log.message("ShowProfileInfo", Colorir(31, `Perfil "${profile}" não encontrado.`))
+        Log.message("ShowProfileInfo", Colorir(33, `Disponíveis: ${Object.keys(perfis).join(", ")}`))
         return
     }
 
-    Log.message("ShowProfileInfo", `Perfil: ${profile}`.yellow)
-    Log.message("ShowProfileInfo", `Diretório de Instalação: ${profileContent.installationDataDir}`.green)
-    Log.message("ShowProfileInfo", "Repositórios para instalação:".green)
+    Log.message("ShowProfileInfo", Colorir(33, `Perfil: ${profile}`))
+    Log.message("ShowProfileInfo", Colorir(32, `Diretório de instalação: ${conteudo.installationDataDir}`))
+    Log.message("ShowProfileInfo", Colorir(32, "Repositórios a instalar:"))
 
-    profileContent.repositoriesToInstall.forEach((repo, index) => {
-        Log.message("ShowProfileInfo", `    Namespace: ${repo.repositoryNamespace}`.blue)
-        Log.message("ShowProfileInfo", `    Tipo de Fonte: ${repo.repositorySourceType}`.blue)
-        Log.message("ShowProfileInfo", `    Caminho: ${repo.repositoryPath}`.blue)
+    conteudo.repositoriesToInstall.forEach(({ namespace, sourceType, executablesToInstall }) => {
 
-        if (repo.appsToInstall && repo.appsToInstall.length > 0) {
-            Log.message("ShowProfileInfo", "    Aplicações para instalar:".magenta)
-            repo.appsToInstall.forEach((app, appIndex) => {
-                Log.message("ShowProfileInfo", `      Tipo: ${app.appType}`)
-                Log.message("ShowProfileInfo", `      Executável: ${app.executable}`)
-                Log.message("ShowProfileInfo", `      Namespace do Pacote: ${app.packageNamespace}`)
-                Log.message("ShowProfileInfo", `      Nome do Socket do Supervisor: ${app.supervisorSocketFileName}`)
-            })
+        Log.message("ShowProfileInfo", Colorir(34, `    ${namespace}`))
+        Log.message("ShowProfileInfo", Colorir(34, `      fonte: ${sourceType}`))
+
+        const executaveis = executablesToInstall || []
+
+        if (executaveis.length === 0) {
+            Log.message("ShowProfileInfo", Colorir(90, "      executáveis: nenhum"))
+            return
         }
+
+        Log.message("ShowProfileInfo", Colorir(35, `      executáveis (${executaveis.length}):`))
+        executaveis.forEach((executavel) => Log.message("ShowProfileInfo", `        ${executavel}`))
     })
 }
 

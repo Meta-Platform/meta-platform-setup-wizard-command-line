@@ -3,6 +3,15 @@ const process = require("process")
 const yargs = require("yargs/yargs")
 const { hideBin } = require("yargs/helpers")
 
+/*
+ * `Log` é global e alguém precisa instalá-lo antes do primeiro comando. Quem
+ * instalava era o SetupCLIScriptLoader, chamado só por `install` e `update` --
+ * ver Helpers/EnsureLogger para o porquê e para a ordem de tentativas.
+ */
+const EnsureLogger = require("../Helpers/EnsureLogger")
+
+EnsureLogger({ origin: "wizard" })
+
 const ListProfilesCommand = require("../Commands/ListProfiles.command")
 const InstallCommand = require("../Commands/Install.command")
 const UpdateCommand = require("../Commands/Update.command")
@@ -50,10 +59,15 @@ const { argv } = yargs(hideBin(process.argv))
 			type: 'string'
 		}
 	}, RunCommand(({ profile, installationPath }) => UpdateCommand({ profile, installationPath })))
+	/*
+	 * O default era 'standard', que não é perfil registrado desde a renomeação
+	 * para `github-release-*`: chamar sem argumento entregava "perfil não
+	 * encontrado" em vez de ajudar. Com `demandOption` e sem default, o yargs
+	 * cobra o argumento e o comando lista os disponíveis quando erra o nome.
+	 */
 	.command('show-profile [profile]', 'Mostra informações sobre um perfil especifico', {
 		profile: {
 			describe: 'Perfil de instalação',
-			default: 'standard',
 			type: 'string',
 			demandOption: true
 		}
