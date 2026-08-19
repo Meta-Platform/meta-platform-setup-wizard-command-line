@@ -8,6 +8,7 @@ const BuildRepositoriesInstallData = require("./BuildRepositoriesInstallData")
 const PrepareRepositorySources    = require("./PrepareRepositorySources")
 const InstallLogger = require("./InstallLogger")
 const ReportFailure = require("./ReportFailure")
+const ArmTypeScriptResolution = require("./ArmTypeScriptResolution")
 
 const LEVEL_BY_TYPE = { info : "info", success : "message", warning : "warn", error : "error" }
 
@@ -17,6 +18,10 @@ const Installer = async ({
     LoaderScript
 }) => {
     
+    /* O EssentialRepo é TypeScript: sem isto o require abaixo não encontra o
+       arquivo que está lá, e falha sem dizer nada. Ver ArmTypeScriptResolution. */
+    ArmTypeScriptResolution(LoaderScript)
+
     const InstallEcosystemByProfile = LoaderScript("ecosystem-install-utilities.lib/src/InstallEcosystemByProfile")
 
     const installationProfiles = LoadAllInstalationProfiles()

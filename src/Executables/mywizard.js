@@ -9,6 +9,7 @@ const { hideBin } = require("yargs/helpers")
  * ver Helpers/EnsureLogger para o porquê e para a ordem de tentativas.
  */
 const EnsureLogger = require("../Helpers/EnsureLogger")
+const ReportFailure = require("../Helpers/ReportFailure")
 
 EnsureLogger({ origin: "wizard" })
 
@@ -27,13 +28,26 @@ const ShowProfileInfoCommand = require("../Commands/ShowProfileInfo.command")
  * quebrou dois passos depois com "repo: not found" (código 127), apontando para o
  * lugar errado.
  *
- * O erro em si já foi relatado por quem o capturou (ver Helpers/ReportFailure);
- * aqui a única responsabilidade é não mentir sobre o resultado.
+ * E RELATA, em vez de supor que outro já relatou.
+ *
+ * A premissa anterior era que o erro já teria sido impresso por quem o capturou.
+ * Ela vale para o que acontece DENTRO do try do Installer — e só. Um erro
+ * lançado antes dele (carregar uma lib do EssentialRepo, por exemplo) chega
+ * aqui sem ter passado por relato nenhum, e este `catch` o descartava: o
+ * processo saía 1, mudo. Foi o que aconteceu quando o EssentialRepo virou
+ * TypeScript e o `require` da lib de instalação parou de resolver — o build de
+ * imagem parava num `RUN ./mywizard install` sem uma linha de erro, e horas se
+ * foram atrás de um sintoma que aparecia em outro passo.
+ *
+ * Relatar duas vezes é barato. Não relatar nenhuma custou o dia.
  */
 const RunCommand = (Command) => (args) =>
 	Promise.resolve()
 		.then(() => Command(args))
-		.catch(() => { process.exitCode = 1 })
+		.catch((error) => {
+			ReportFailure("mywizard", "O comando falhou.", error)
+			process.exitCode = 1
+		})
 
 const { argv } = yargs(hideBin(process.argv))
 	.command('list-profiles', 'Exibe os perfis de instalação disponíveis', () => ListProfilesCommand())
