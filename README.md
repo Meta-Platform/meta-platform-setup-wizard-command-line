@@ -76,8 +76,7 @@ Confirmado em [`src/Executables/mywizard.js`](./src/Executables/mywizard.js):
   forma posicional ou de flag.
 - **`--profile` é obrigatório** em `install` e `update`. Um nome não registrado
   falha listando os perfis disponíveis.
-- O comando `show-profile` existe no CLI, mas está **quebrado** na versão atual —
-  ver [docs/known-issues.md](./docs/known-issues.md).
+- `show-profile <perfil>` imprime o conteúdo de um perfil registrado.
 
 ## Perfis registrados
 
@@ -127,7 +126,6 @@ configs/                 # configurações internas (ver docs/config-files.md)
 | Sintoma | Solução |
 |---------|---------|
 | `mywizard install` falha sem `--profile` | `--profile` é obrigatório; rode `mywizard list-profiles` para ver os nomes. |
-| `show-profile` não funciona | Bug conhecido; use `list-profiles` e inspecione o `*.install.json`. Ver [known-issues](./docs/known-issues.md). |
 | Comandos do ecossistema não encontrados após instalar | Garanta `EcosystemData/executables` no `PATH`. |
 
 Guia completo: [docs/troubleshooting.md](./docs/troubleshooting.md). Lista de
