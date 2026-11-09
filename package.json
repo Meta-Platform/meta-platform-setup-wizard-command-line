@@ -1,6 +1,6 @@
 {
   "name": "mywizard",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Assistente de Instalação e configuração da Meta Plataforma",
   "bin": {
     "mywizard": "./src/Executables/mywizard.js",
